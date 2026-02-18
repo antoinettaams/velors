@@ -189,7 +189,7 @@ const ProductDetail: React.FC = () => {
                     </div>
                     <div className="text-xs sm:text-sm">
                         <p className="font-bold text-stone-900">Livraison</p>
-                        <p className="text-stone-500">24/48h</p>
+                        <p className="text-stone-500">14 jours au plus</p>
                     </div>
                 </div>
                 <div className="bg-white p-2 sm:p-4 rounded-lg sm:rounded-xl shadow-sm border border-stone-100 flex items-center gap-2 sm:gap-3">
