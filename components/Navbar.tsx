@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center gap-2 group">
-              <span className="font-bold text-3xl tracking-tighter text-velors-gray group-hover:text-stone-900 transition-colors">VELORS<span className="text-velors-orange">.</span></span>
+              <span className="font-bold text-2xl sm:text-3xl tracking-tighter text-velors-gray group-hover:text-stone-900 transition-colors">VELORS<span className="text-velors-orange">.</span></span>
             </Link>
           </div>
 
@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                  className={`px-3 py-2 rounded-md text-sm sm:text-base font-medium transition-colors duration-200 ${
                     isActive(link.path)
                       ? 'text-velors-orange'
                       : 'text-stone-600 hover:text-velors-gray'
@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
           </div>
 
           <div className="hidden md:block">
-             <Link to="/product" className="bg-stone-900 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-velors-orange transition-all duration-300 shadow-lg shadow-stone-900/10">
+             <Link to="/product" className="bg-stone-900 text-white px-6 py-2.5 rounded-full text-sm sm:text-base font-bold hover:bg-velors-orange transition-all duration-300 shadow-lg shadow-stone-900/10">
                 Commander
              </Link>
           </div>
@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`block px-3 py-4 rounded-md text-base font-medium text-center ${
+                className={`block px-3 py-4 rounded-md text-sm sm:text-base font-medium text-center ${
                   isActive(link.path)
                     ? 'text-velors-orange bg-stone-100'
                     : 'text-stone-600 hover:text-stone-900 hover:bg-stone-50'
@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
              <Link 
                 to="/product"
                 onClick={() => setIsOpen(false)}
-                className="block w-full text-center bg-stone-900 text-white px-5 py-4 mt-4 rounded-md text-base font-medium hover:bg-stone-800"
+                className="block w-full text-center bg-stone-900 text-white px-5 py-4 mt-4 rounded-md text-sm sm:text-base font-medium hover:bg-stone-800"
              >
                 Commander maintenant
              </Link>

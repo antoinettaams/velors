@@ -19,7 +19,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen font-sans text-stone-800 antialiased bg-velors-light selection:bg-velors-orange selection:text-white">
+      <div className="flex flex-col min-h-screen font-sans  antialiased bg-velors-light selection:bg-velors-orange selection:text-white">
         <Navbar />
         <main className="flex-grow">
           <Routes>
