@@ -245,7 +245,7 @@ const ProductDetail: React.FC = () => {
             </p>
 
             {/* Caractéristiques */}
-            <div className="bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-stone-100 shadow-sm mb-6 sm:mb-8">
+            <div className="bg-white p-10 sm:p-35 rounded-xl sm:rounded-2xl border border-stone-100 shadow-sm mb-6 sm:mb-8">
                <h3 className="font-bold text-stone-900 mb-3 sm:mb-4 flex items-center gap-2 text-base sm:text-lg">
                    <Package size={18} className="sm:w-5 sm:h-5 text-velors-orange" />
                    Caractéristiques Premium :
@@ -262,11 +262,6 @@ const ProductDetail: React.FC = () => {
 
             {/* Stock et CTA */}
             <div className="mt-auto">
-                <div className="p-3 sm:p-4 bg-orange-50 rounded-lg sm:rounded-xl border border-orange-100 mb-4 sm:mb-6 text-xs sm:text-sm text-orange-800 flex items-center gap-2 sm:gap-3">
-                    <Zap size={16} className="sm:w-5 sm:h-5 animate-pulse flex-shrink-0" />
-                    <span><strong>Stock limité :</strong> Plus que 12 paires disponibles</span>
-                </div>
-                
                 <button
                   onClick={() => setIsModalOpen(true)}
                   className="w-full bg-stone-900 text-white py-4 sm:py-6 rounded-xl sm:rounded-2xl text-base sm:text-xl font-bold hover:bg-velors-orange transition-all duration-300 transform hover:-translate-y-1 shadow-lg sm:shadow-xl shadow-stone-900/20 flex items-center justify-center gap-2 sm:gap-3"
