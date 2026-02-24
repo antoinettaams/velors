@@ -393,72 +393,35 @@ const ProductDetail: React.FC = () => {
         </div>
         <div className="order-1 md:order-2 rounded-3xl overflow-hidden shadow-xl h-[400px]">
             <img 
-                src="https://images.unsplash.com/photo-1543165796-5426273eaab3?q=80&w=2070&auto=format&fit=crop" 
+                src="https://i.postimg.cc/bJbWCrRf/Chat-GPT-Image-24-fevr-2026-21-06-34.png" 
                 alt="Technologie anti-fatigue - semelle confort" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
         </div>
     </div>
 
-    {/* Section 2: Image Left, Text Right - Alignement du corps */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div className="rounded-3xl overflow-hidden shadow-xl h-[400px]">
-            <img 
-                src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=2069&auto=format&fit=crop" 
-                alt="Alignement du corps et posture" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-            />
-        </div>
-        <div>
-            <h3 className="text-3xl font-bold text-stone-900 mb-6">Un alignement parfait de votre corps</h3>
-            <p className="text-lg text-stone-600 leading-relaxed mb-6">
-                Tout part des pieds. Un mauvais appui entraîne des douleurs aux genoux et au dos. Notre support de voûte plantaire dynamique corrige votre posture naturellement.
-            </p>
-            <p className="text-lg text-stone-600 leading-relaxed">
-                Contrairement aux semelles orthopédiques rigides, Velors guide votre pied sans le bloquer, renforçant ainsi vos muscles stabilisateurs jour après jour.
-            </p>
-        </div>
-    </div>
-
     {/* Section 3: Text Left, Image Right - Adaptabilité */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div className="order-2 md:order-1">
-            <h3 className="text-3xl font-bold text-stone-900 mb-6">S'adapte à toutes vos chaussures</h3>
-            <p className="text-lg text-stone-600 leading-relaxed mb-6">
-                Baskets, chaussures de ville, bottines ou chaussures de sécurité : la Velors Signature est ultra-fine et découpable.
-            </p>
-            <p className="text-lg text-stone-600 leading-relaxed">
-                Elle remplace avantageusement n'importe quelle semelle d'origine en quelques secondes. Des guides de coupe précis sont imprimés au verso pour un ajustement millimétré.
-            </p>
-        </div>
-        <div className="order-1 md:order-2 rounded-3xl overflow-hidden shadow-xl h-[400px]">
-            <img 
-                src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop" 
-                alt="Adaptabilité à toutes les chaussures" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-            />
-        </div>
+   <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    {/* Image à gauche */}
+    <div className="rounded-3xl overflow-hidden shadow-xl h-[400px]">
+        <img 
+            src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop" 
+            alt="Adaptabilité à toutes les chaussures" 
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+        />
     </div>
-
-    {/* Section 4: Image Left, Text Right - Hygiène */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div className="rounded-3xl overflow-hidden shadow-xl h-[400px]">
-            <img 
-                src="https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?q=80&w=2070&auto=format&fit=crop" 
-                alt="Hygiène et fraîcheur" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-            />
-        </div>
-        <div>
-            <h3 className="text-3xl font-bold text-stone-900 mb-6">Hygiène et fraîcheur garanties</h3>
-            <p className="text-lg text-stone-600 leading-relaxed mb-6">
-                Fini les mauvaises odeurs. Notre revêtement supérieur en fibres de bambou et charbon actif neutralise les bactéries et évacue l'humidité.
-            </p>
-            <p className="text-lg text-stone-600 leading-relaxed">
-                Vos pieds restent au sec et au frais, été comme hiver. Lavable en machine à froid pour une durabilité maximale.
-            </p>
-        </div>
+    
+    {/* Texte à droite */}
+    <div>
+        <h3 className="text-3xl font-bold text-stone-900 mb-6">S'adapte à toutes vos chaussures</h3>
+        <p className="text-lg text-stone-600 leading-relaxed mb-6">
+            Baskets, chaussures de ville, bottines ou chaussures de sécurité : la Velors Signature est ultra-fine et découpable.
+        </p>
+        <p className="text-lg text-stone-600 leading-relaxed">
+            Elle remplace avantageusement n'importe quelle semelle d'origine en quelques secondes. Des guides de coupe précis sont imprimés au verso pour un ajustement millimétré.
+        </p>
     </div>
+</div>
 </div>
 
         {/* ANGLE 2: Santé & Posture */}
@@ -604,12 +567,6 @@ const ProductDetail: React.FC = () => {
                   </div>
                 </div>
               ))}
-            </div>
-
-            {/* Message de livraison */}
-            <div className="mt-10 text-center text-sm text-stone-500 bg-stone-100 p-4 rounded-xl max-w-2xl mx-auto flex items-center justify-center gap-2">
-              <Truck className="text-velors-orange" size={18} />
-              <span>Livraison partout au Bénin : <strong>Cotonou, Calavi, Porto-Novo, Parakou, Bohicon, Abomey, Ouidah...</strong></span>
             </div>
           </div>
         </section>
