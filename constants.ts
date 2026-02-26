@@ -5,7 +5,7 @@ export const SINGLE_PRODUCT: Product = {
   name: 'Velors Signature',
   tagline: 'L\'expérience de marche ultime.',
   description: 'La semelle qui transforme n\'importe quelle chaussure en un nuage de confort. Conçue pour la vie urbaine, la Velors Signature allie une mousse à mémoire de forme haute densité à un support de voûte plantaire ergonomique. Fini les pieds fatigués après une journée de marche.',
-  price: 2500 ,
+  price: 3000 ,
   colors: ['Orange', 'Bleu', 'Gris', 'Noir'],
   features: [
     'Mousse Mémoire de Forme 3D',
