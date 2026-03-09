@@ -576,4 +576,126 @@ const ProductDetail: React.FC = () => {
               {
                 title: "Le Sport & Loisirs",
                 desc: "Transformez vos sneakers lifestyle en véritables alliées pour vos longues marches dominicales.",
-                img: "https://z-p3-scontent.flfw1-1.fna.fbcdn.net/v/t1.15752-9/613136778_895313113196456_8925653141940045873_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGO7D4HaP_95-QZALSZy
+                img: "https://z-p3-scontent.flfw1-1.fna.fbcdn.net/v/t1.15752-9/613136778_895313113196456_8925653141940045873_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGO7D4HaP_95-QZALSZyagLr_V1TKbXygOv9XVMptfKA5Qi7EIxnP59c3if-7Vu-hdJQwLyFPl3R8cB1aPJ-MgM&_nc_ohc=LDtYocmxHYgQ7kNvwG746aB&_nc_oc=AdlStdzXpRrdkrig-EQX9OGFw9poustXltsL3O0yydKY9frg5MPmk1ME_Ypkc-HwJg0&_nc_zt=23&_nc_ht=z-p3-scontent.flfw1-1.fna&oh=03_Q7cD4gHAdZmKYXaR6MwbihV4sptxbcnGA6amLCbLpCC5QM9P3Q&oe=69BBE544"
+              },
+              {
+                title: "Voyages",
+                desc: "Parcourez des villes entières sans ressentir de brûlures plantaires en fin de journée.",
+                img: "https://i.pinimg.com/1200x/9c/88/c7/9c88c71ca0a3aec5597b9f05c556a3bd.jpg"
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden border border-stone-100 shadow-sm group hover:shadow-xl transition-shadow">
+                <div className="h-40 sm:h-44 lg:h-48 overflow-hidden">
+                  <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                </div>
+                <div className="p-4 sm:p-5 lg:p-6">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-1 sm:mb-2">{item.title}</h3>
+                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECTION TÉMOIGNAGES - Avis clients du Bénin */}
+        <section className="mt-20 sm:mt-24 lg:mt-32">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900">Ils marchent avec Velors au Bénin</h2>
+              <div className="flex justify-center mt-3 sm:mt-4 text-velors-orange">
+                <Star fill="currentColor" size={20} className="sm:w-6 sm:h-6" />
+                <Star fill="currentColor" size={20} className="sm:w-6 sm:h-6" />
+                <Star fill="currentColor" size={20} className="sm:w-6 sm:h-6" />
+                <Star fill="currentColor" size={20} className="sm:w-6 sm:h-6" />
+                <Star fill="currentColor" size={20} className="sm:w-6 sm:h-6" />
+              </div>
+              <p className="mt-2 font-medium text-stone-600 text-sm sm:text-base">4.9/5 basé sur +1000 avis</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+              {[
+                { 
+                  name: "Basile TCHIBOZO", 
+                  role: "Zémidjan à Cotonou", 
+                  text: "Je roule toute la journée sous le soleil. Avec Velors, mes pieds ne glissent plus sur la pédale et j'ai moins mal aux genoux le soir. Mes collègues zémidjans devraient tous en acheter!" 
+                },
+                { 
+                  name: "Félicien GANGBE", 
+                  role: "Maçon à Godomey", 
+                  text: "Toute la journée sur les chantiers, les pieds en souffrent. Un collègue m'a parlé de Velors. Maintenant je mets ça dans mes bottes de chantier, fini les ampoules et la fatigue." 
+                },
+                { 
+                  name: "Rachida TOURE", 
+                  role: "Enseignante à Porto-Novo", 
+                  text: "Rester debout devant le tableau toute la journée, c'est épuisant. Mes collègues ont remarqué que je ne me plains plus de mes jambes. C'est Velors le secret!" 
+                }
+              ].map((review, idx) => (
+                <div key={idx} className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-stone-100 hover:shadow-lg transition-shadow">
+                  <div className="flex gap-1 text-velors-orange mb-3 sm:mb-4">
+                    {[1,2,3,4,5].map(s => <Star key={s} size={16} fill="currentColor" />)}
+                  </div>
+                  <p className="text-stone-700 mb-4 sm:mb-6 italic text-sm sm:text-base">"{review.text}"</p>
+                  <div className="flex items-center">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-velors-orange/20 rounded-full flex items-center justify-center font-bold text-velors-orange text-xs sm:text-sm">
+                      {review.name.charAt(0)}
+                    </div>
+                    <div className="ml-3">
+                      <p className="font-bold text-stone-900 text-xs sm:text-sm">{review.name}</p>
+                      <p className="text-xs text-stone-500">{review.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Detailed FAQ / Trust Section */}
+        <div className="mt-20 sm:mt-24 lg:mt-32 max-w-4xl mx-auto px-4">
+          <div className="bg-white p-6 sm:p-8 lg:p-12 rounded-2xl sm:rounded-[2rem] shadow-sm border border-stone-100">
+            <h2 className="text-xl sm:text-2xl font-bold text-stone-900 mb-6 sm:mb-8 text-center flex items-center justify-center gap-2 sm:gap-3">
+              <ShieldCheck className="text-velors-orange w-5 h-5 sm:w-6 sm:h-6" />
+              Votre satisfaction est notre priorité
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
+              <div>
+                <h3 className="font-bold text-base sm:text-lg mb-2">Comment l'ajuster ?</h3>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  La semelle est pré-découpée. Si elle est un peu large, utilisez votre ancienne semelle comme guide et coupez l'excédent avec de simples ciseaux. C'est un jeu d'enfant.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-base sm:text-lg mb-2">Paiement à la livraison</h3>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  Pas de carte bancaire à entrer. Vous commandez en 2 clics, vous recevez votre colis, et vous payez le livreur uniquement quand le produit est chez vous.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center border-t border-stone-100 pt-8 sm:pt-12">
+              <p className="text-stone-800 font-bold text-base sm:text-lg mb-4 sm:mb-6 text-center px-4">
+                Prêt à transformer votre quotidien ?
+              </p>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-velors-orange text-white px-8 sm:px-12 py-4 sm:py-5 rounded-full text-base sm:text-xl font-bold hover:bg-orange-600 transition-all shadow-lg sm:shadow-xl shadow-orange-900/20 transform hover:-translate-y-1 flex items-center gap-2 sm:gap-3"
+              >
+                COMMANDER MAINTENANT
+                <ArrowLeft className="rotate-180 w-4 h-4 sm:w-5 sm:h-5" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <OrderModal 
+        product={product} 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+    </div>
+  );
+};
+
+export default ProductDetail;
