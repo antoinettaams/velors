@@ -244,104 +244,20 @@ const ProductDetail: React.FC = () => {
               Oubliez la sensation de pieds lourds. La Velors Signature est la seule semelle qui s'adapte à votre morphologie unique pour un soutien millimétré.
             </p>
 
-            {/* Zone combinée Packs + Caractéristiques - côte à côte avec même hauteur */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 sm:mb-8">
-              
-              {/* SECTION PACK ÉCONOMIQUE */}
-              <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-2xl border-2 border-velors-orange/30 shadow-lg relative overflow-hidden flex flex-col h-full">
-                {/* Badge "Économisez jusqu'à 2000 F" */}
-                <div className="absolute top-3 right-3 bg-velors-orange text-white text-xs font-bold px-3 py-1.5 rounded-full rotate-3 shadow-lg z-10">
-                  JUSQU'À -13%
-                </div>
-                
-                <h3 className="text-xl font-bold text-stone-900 mb-4 flex items-center gap-2">
-                  <Package className="text-velors-orange" size={24} />
-                  Achetez en pack
-                </h3>
-                
-                <p className="text-stone-600 mb-4 text-sm">
-                  Glissez une paire dans toutes vos chaussures ou partagez avec un proche.
-                </p>
-
-                <div className="space-y-3 flex-1">
-                  {/* Pack 1 paire */}
-                  <div className="bg-white rounded-xl p-3 border-2 border-stone-200 hover:border-velors-orange/50 transition-all cursor-pointer">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <span className="text-xs font-semibold text-stone-500 uppercase">1 Paire</span>
-                        <div className="text-xl font-bold text-stone-900">5 000 F</div>
-                      </div>
-                      <div className="text-xs text-stone-400">À l'unité</div>
-                    </div>
-                  </div>
-
-                  {/* Pack 2 paires - Meilleure vente */}
-                  <div className="bg-white rounded-xl p-3 border-2 border-velors-orange shadow-md relative">
-                    <div className="absolute -top-2 right-2 bg-velors-orange text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-                      ⭐ MEILLEUR CHOIX
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <span className="text-xs font-semibold text-stone-500 uppercase">Pack Duo</span>
-                        <div className="text-xl font-bold text-velors-orange">8 000 F</div>
-                      </div>
-                      <div className="text-right">
-                        <div className="flex items-center gap-1 text-xs">
-                          <span className="line-through text-stone-400">10 000 F</span>
-                          <span className="text-green-600 font-bold">-20%</span>
-                        </div>
-                        <div className="text-[10px] text-stone-500">
-                          <span className="bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full">
-                            Éco 2 000 F
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Pack 3 paires */}
-                  <div className="bg-white rounded-xl p-3 border-2 border-stone-200 hover:border-velors-orange/50 transition-all cursor-pointer">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <span className="text-xs font-semibold text-stone-500 uppercase">Pack Max</span>
-                        <div className="text-xl font-bold text-stone-900">13 000 F</div>
-                      </div>
-                      <div className="text-right">
-                        <div className="flex items-center gap-1 text-xs">
-                          <span className="line-through text-stone-400">15 000 F</span>
-                          <span className="text-green-600 font-bold">-13%</span>
-                        </div>
-                        <div className="text-[10px] text-stone-500">
-                          <span className="bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full">
-                            Éco 2 000 F
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Message rassurant */}
-                <p className="text-[10px] text-center text-stone-500 mt-3">
-                  🚚 Livraison offerte dès 2 paires
-                </p>
-              </div>
-
-              {/* Caractéristiques */}
-              <div className="bg-white p-6 rounded-2xl border border-stone-100 shadow-sm flex flex-col h-full">
-                 <h3 className="font-bold text-stone-900 mb-3 flex items-center gap-2 text-base">
-                     <Package size={18} className="text-velors-orange" />
-                     Caractéristiques Premium :
-                 </h3>
-                 <ul className="space-y-2 flex-1">
-                    {product.features.map((feat, idx) => (
-                        <li key={idx} className="flex items-start text-xs text-stone-700">
-                            <CheckCircle size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                            <span>{feat}</span>
-                        </li>
-                    ))}
-                 </ul>
-              </div>
+            {/* Caractéristiques */}
+            <div className="bg-white p-10 sm:p-35 rounded-xl sm:rounded-2xl border border-stone-100 shadow-sm mb-6 sm:mb-8">
+               <h3 className="font-bold text-stone-900 mb-3 sm:mb-4 flex items-center gap-2 text-base sm:text-lg">
+                   <Package size={18} className="sm:w-5 sm:h-5 text-velors-orange" />
+                   Caractéristiques Premium :
+               </h3>
+               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-y-3 sm:gap-x-4">
+                  {product.features.map((feat, idx) => (
+                      <li key={idx} className="flex items-start text-xs sm:text-sm text-stone-700">
+                          <CheckCircle size={14} className="sm:w-4 sm:h-4 text-green-500 mr-1.5 sm:mr-2 mt-0.5 flex-shrink-0" />
+                          <span>{feat}</span>
+                      </li>
+                  ))}
+               </ul>
             </div>
 
             {/* Stock et CTA */}
@@ -458,50 +374,50 @@ const ProductDetail: React.FC = () => {
         </section>
 
         {/* NEW ALTERNATING SECTIONS */}
-        <div className="space-y-24 mb-24">
-            {/* Section 1: Text Left, Image Right - Technologie anti-fatigue */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="order-2 md:order-1">
-                    <h3 className="text-3xl font-bold text-stone-900 mb-6">Une technologie anti-fatigue révolutionnaire</h3>
-                    <p className="text-lg text-stone-600 leading-relaxed mb-6">
-                        Grâce à sa structure multicouche unique, la semelle Velors absorbe les micro-chocs à chaque pas. Résultat ? Vos jambes restent légères, même après 8 heures debout.
-                    </p>
-                    <p className="text-lg text-stone-600 leading-relaxed">
-                        C'est comme si vous marchiez sur un tapis de yoga toute la journée. La mousse à mémoire de forme reprend sa place instantanément pour offrir le même confort du matin au soir.
-                    </p>
-                </div>
-                <div className="order-1 md:order-2 rounded-3xl overflow-hidden shadow-xl h-[400px]">
-                    <img 
-                        src="https://i.postimg.cc/bJbWCrRf/Chat-GPT-Image-24-fevr-2026-21-06-34.png" 
-                        alt="Technologie anti-fatigue - semelle confort" 
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                    />
-                </div>
-            </div>
+<div className="space-y-24 mb-24">
+    {/* Section 1: Text Left, Image Right - Technologie anti-fatigue */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="order-2 md:order-1">
+            <h3 className="text-3xl font-bold text-stone-900 mb-6">Une technologie anti-fatigue révolutionnaire</h3>
+            <p className="text-lg text-stone-600 leading-relaxed mb-6">
+                Grâce à sa structure multicouche unique, la semelle Velors absorbe les micro-chocs à chaque pas. Résultat ? Vos jambes restent légères, même après 8 heures debout.
+            </p>
+            <p className="text-lg text-stone-600 leading-relaxed">
+                C'est comme si vous marchiez sur un tapis de yoga toute la journée. La mousse à mémoire de forme reprend sa place instantanément pour offrir le même confort du matin au soir.
+            </p>
+        </div>
+        <div className="order-1 md:order-2 rounded-3xl overflow-hidden shadow-xl h-[400px]">
+            <img 
+                src="https://i.postimg.cc/bJbWCrRf/Chat-GPT-Image-24-fevr-2026-21-06-34.png" 
+                alt="Technologie anti-fatigue - semelle confort" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+        </div>
+    </div>
 
-            {/* Section 3: Text Left, Image Right - Adaptabilité */}
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {/* Image à gauche */}
-            <div className="rounded-3xl overflow-hidden shadow-xl h-[400px]">
-                <img 
-                    src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop" 
-                    alt="Adaptabilité à toutes les chaussures" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-            </div>
-            
-            {/* Texte à droite */}
-            <div>
-                <h3 className="text-3xl font-bold text-stone-900 mb-6">S'adapte à toutes vos chaussures</h3>
-                <p className="text-lg text-stone-600 leading-relaxed mb-6">
-                    Baskets, chaussures de ville, bottines ou chaussures de sécurité : la Velors Signature est ultra-fine et découpable.
-                </p>
-                <p className="text-lg text-stone-600 leading-relaxed">
-                    Elle remplace avantageusement n'importe quelle semelle d'origine en quelques secondes. Des guides de coupe précis sont imprimés au verso pour un ajustement millimétré.
-                </p>
-            </div>
-        </div>
-        </div>
+    {/* Section 3: Text Left, Image Right - Adaptabilité */}
+   <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    {/* Image à gauche */}
+    <div className="rounded-3xl overflow-hidden shadow-xl h-[400px]">
+        <img 
+            src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop" 
+            alt="Adaptabilité à toutes les chaussures" 
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+        />
+    </div>
+    
+    {/* Texte à droite */}
+    <div>
+        <h3 className="text-3xl font-bold text-stone-900 mb-6">S'adapte à toutes vos chaussures</h3>
+        <p className="text-lg text-stone-600 leading-relaxed mb-6">
+            Baskets, chaussures de ville, bottines ou chaussures de sécurité : la Velors Signature est ultra-fine et découpable.
+        </p>
+        <p className="text-lg text-stone-600 leading-relaxed">
+            Elle remplace avantageusement n'importe quelle semelle d'origine en quelques secondes. Des guides de coupe précis sont imprimés au verso pour un ajustement millimétré.
+        </p>
+    </div>
+</div>
+</div>
 
         {/* ANGLE 2: Santé & Posture */}
         <section className="mt-20 sm:mt-24 lg:mt-32 bg-stone-900 rounded-2xl sm:rounded-[3rem] p-6 sm:p-12 lg:p-20 text-white overflow-hidden relative">
