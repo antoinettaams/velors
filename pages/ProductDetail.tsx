@@ -243,96 +243,105 @@ const ProductDetail: React.FC = () => {
             <p className="text-sm sm:text-base text-stone-600 mb-6 sm:mb-8 italic border-l-4 border-velors-orange pl-4">
               Oubliez la sensation de pieds lourds. La Velors Signature est la seule semelle qui s'adapte à votre morphologie unique pour un soutien millimétré.
             </p>
-            {/* SECTION PACK ÉCONOMIQUE - À AJOUTER ICI */}
-<div className="bg-gradient-to-br from-amber-50 to-orange-50 p-6 sm:p-8 rounded-2xl border-2 border-velors-orange/30 shadow-lg mb-8 relative overflow-hidden">
-  {/* Badge "Économisez jusqu'à 2000 F" */}
-  <div className="absolute top-3 right-3 bg-velors-orange text-white text-xs font-bold px-3 py-1.5 rounded-full rotate-3 shadow-lg">
-    JUSQU'À -13%
-  </div>
-  
-  <h3 className="text-xl sm:text-2xl font-bold text-stone-900 mb-4 flex items-center gap-2">
-    <Package className="text-velors-orange" size={24} />
-    Achetez en pack, économisez !
-  </h3>
-  
-  <p className="text-stone-600 mb-6 text-sm sm:text-base">
-    Glissez une paire dans toutes vos chaussures ou partagez avec un proche.
-  </p>
 
-  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-    {/* Pack 1 paire */}
-    <div className="bg-white rounded-xl p-4 border-2 border-stone-200 hover:border-velors-orange/50 transition-all cursor-pointer group">
-      <div className="text-center">
-        <span className="text-xs font-semibold text-stone-500 uppercase tracking-wide">1 Paire</span>
-        <div className="text-2xl font-bold text-stone-900 my-2">5 000 F</div>
-        <div className="text-xs text-stone-500">À l'unité</div>
-        <div className="mt-3 text-xs text-stone-400">Idéal pour tester</div>
-      </div>
-    </div>
+            {/* Zone combinée Packs + Caractéristiques - côte à côte */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 sm:mb-8">
+              
+              {/* SECTION PACK ÉCONOMIQUE */}
+              <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-2xl border-2 border-velors-orange/30 shadow-lg relative overflow-hidden h-fit">
+                {/* Badge "Économisez jusqu'à 2000 F" */}
+                <div className="absolute top-3 right-3 bg-velors-orange text-white text-xs font-bold px-3 py-1.5 rounded-full rotate-3 shadow-lg">
+                  JUSQU'À -13%
+                </div>
+                
+                <h3 className="text-xl font-bold text-stone-900 mb-4 flex items-center gap-2">
+                  <Package className="text-velors-orange" size={24} />
+                  Achetez en pack
+                </h3>
+                
+                <p className="text-stone-600 mb-4 text-sm">
+                  Glissez une paire dans toutes vos chaussures ou partagez avec un proche.
+                </p>
 
-    {/* Pack 2 paires - Meilleure vente */}
-    <div className="bg-white rounded-xl p-4 border-2 border-velors-orange shadow-xl relative transform hover:-translate-y-1 transition-all cursor-pointer group">
-      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-velors-orange text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-        MEILLEUR CHOIX ⭐
-      </div>
-      <div className="text-center">
-        <span className="text-xs font-semibold text-stone-500 uppercase tracking-wide">Pack Duo</span>
-        <div className="text-2xl font-bold text-velors-orange my-2">8 000 F</div>
-        <div className="flex items-center justify-center gap-2 text-sm">
-          <span className="line-through text-stone-400">10 000 F</span>
-          <span className="text-green-600 font-bold">-20%</span>
-        </div>
-        <div className="mt-2 text-xs text-stone-600">
-          <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
-            Économisez 2 000 F
-          </span>
-        </div>
-        <div className="mt-3 text-xs text-stone-500">
-          Soit <span className="font-bold text-stone-900">4 000 F</span> la paire
-        </div>
-      </div>
-    </div>
+                <div className="space-y-3">
+                  {/* Pack 1 paire */}
+                  <div className="bg-white rounded-xl p-3 border-2 border-stone-200 hover:border-velors-orange/50 transition-all cursor-pointer">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="text-xs font-semibold text-stone-500 uppercase">1 Paire</span>
+                        <div className="text-xl font-bold text-stone-900">5 000 F</div>
+                      </div>
+                      <div className="text-xs text-stone-400">À l'unité</div>
+                    </div>
+                  </div>
 
-    {/* Pack 3 paires */}
-    <div className="bg-white rounded-xl p-4 border-2 border-stone-200 hover:border-velors-orange/50 transition-all cursor-pointer group">
-      <div className="text-center">
-        <span className="text-xs font-semibold text-stone-500 uppercase tracking-wide">Pack Max</span>
-        <div className="text-2xl font-bold text-stone-900 my-2">13 000 F</div>
-        <div className="flex items-center justify-center gap-2 text-sm">
-          <span className="line-through text-stone-400">15 000 F</span>
-          <span className="text-green-600 font-bold">-13%</span>
-        </div>
-        <div className="mt-2 text-xs text-stone-600">
-          <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
-            Économisez 2 000 F
-          </span>
-        </div>
-        <div className="mt-3 text-xs text-stone-500">
-          Soit <span className="font-bold text-stone-900">4 333 F</span> la paire
-        </div>
-      </div>
-    </div>
-  </div>
+                  {/* Pack 2 paires - Meilleure vente */}
+                  <div className="bg-white rounded-xl p-3 border-2 border-velors-orange shadow-md relative">
+                    <div className="absolute -top-2 right-2 bg-velors-orange text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                      ⭐ MEILLEUR CHOIX
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="text-xs font-semibold text-stone-500 uppercase">Pack Duo</span>
+                        <div className="text-xl font-bold text-velors-orange">8 000 F</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="flex items-center gap-1 text-xs">
+                          <span className="line-through text-stone-400">10 000 F</span>
+                          <span className="text-green-600 font-bold">-20%</span>
+                        </div>
+                        <div className="text-[10px] text-stone-500">
+                          <span className="bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full">
+                            Éco 2 000 F
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-  {/* Message rassurant */}
-  <p className="text-xs text-center text-stone-500 mt-4">
-    🚚 Livraison offerte dès 2 paires • Paiement à la livraison
-  </p>
-</div>
-            {/* Caractéristiques */}
-            <div className="bg-white p-10 sm:p-35 rounded-xl sm:rounded-2xl border border-stone-100 shadow-sm mb-6 sm:mb-8">
-               <h3 className="font-bold text-stone-900 mb-3 sm:mb-4 flex items-center gap-2 text-base sm:text-lg">
-                   <Package size={18} className="sm:w-5 sm:h-5 text-velors-orange" />
-                   Caractéristiques Premium :
-               </h3>
-               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-y-3 sm:gap-x-4">
-                  {product.features.map((feat, idx) => (
-                      <li key={idx} className="flex items-start text-xs sm:text-sm text-stone-700">
-                          <CheckCircle size={14} className="sm:w-4 sm:h-4 text-green-500 mr-1.5 sm:mr-2 mt-0.5 flex-shrink-0" />
-                          <span>{feat}</span>
-                      </li>
-                  ))}
-               </ul>
+                  {/* Pack 3 paires */}
+                  <div className="bg-white rounded-xl p-3 border-2 border-stone-200 hover:border-velors-orange/50 transition-all cursor-pointer">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="text-xs font-semibold text-stone-500 uppercase">Pack Max</span>
+                        <div className="text-xl font-bold text-stone-900">13 000 F</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="flex items-center gap-1 text-xs">
+                          <span className="line-through text-stone-400">15 000 F</span>
+                          <span className="text-green-600 font-bold">-13%</span>
+                        </div>
+                        <div className="text-[10px] text-stone-500">
+                          <span className="bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full">
+                            Éco 2 000 F
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Message rassurant */}
+                <p className="text-[10px] text-center text-stone-500 mt-3">
+                  🚚 Livraison offerte dès 2 paires
+                </p>
+              </div>
+
+              {/* Caractéristiques */}
+              <div className="bg-white p-6 rounded-2xl border border-stone-100 shadow-sm h-fit">
+                 <h3 className="font-bold text-stone-900 mb-3 flex items-center gap-2 text-base">
+                     <Package size={18} className="text-velors-orange" />
+                     Caractéristiques Premium :
+                 </h3>
+                 <ul className="space-y-2">
+                    {product.features.map((feat, idx) => (
+                        <li key={idx} className="flex items-start text-xs text-stone-700">
+                            <CheckCircle size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                            <span>{feat}</span>
+                        </li>
+                    ))}
+                 </ul>
+              </div>
             </div>
 
             {/* Stock et CTA */}
@@ -449,50 +458,50 @@ const ProductDetail: React.FC = () => {
         </section>
 
         {/* NEW ALTERNATING SECTIONS */}
-<div className="space-y-24 mb-24">
-    {/* Section 1: Text Left, Image Right - Technologie anti-fatigue */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div className="order-2 md:order-1">
-            <h3 className="text-3xl font-bold text-stone-900 mb-6">Une technologie anti-fatigue révolutionnaire</h3>
-            <p className="text-lg text-stone-600 leading-relaxed mb-6">
-                Grâce à sa structure multicouche unique, la semelle Velors absorbe les micro-chocs à chaque pas. Résultat ? Vos jambes restent légères, même après 8 heures debout.
-            </p>
-            <p className="text-lg text-stone-600 leading-relaxed">
-                C'est comme si vous marchiez sur un tapis de yoga toute la journée. La mousse à mémoire de forme reprend sa place instantanément pour offrir le même confort du matin au soir.
-            </p>
-        </div>
-        <div className="order-1 md:order-2 rounded-3xl overflow-hidden shadow-xl h-[400px]">
-            <img 
-                src="https://i.postimg.cc/bJbWCrRf/Chat-GPT-Image-24-fevr-2026-21-06-34.png" 
-                alt="Technologie anti-fatigue - semelle confort" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-            />
-        </div>
-    </div>
+        <div className="space-y-24 mb-24">
+            {/* Section 1: Text Left, Image Right - Technologie anti-fatigue */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div className="order-2 md:order-1">
+                    <h3 className="text-3xl font-bold text-stone-900 mb-6">Une technologie anti-fatigue révolutionnaire</h3>
+                    <p className="text-lg text-stone-600 leading-relaxed mb-6">
+                        Grâce à sa structure multicouche unique, la semelle Velors absorbe les micro-chocs à chaque pas. Résultat ? Vos jambes restent légères, même après 8 heures debout.
+                    </p>
+                    <p className="text-lg text-stone-600 leading-relaxed">
+                        C'est comme si vous marchiez sur un tapis de yoga toute la journée. La mousse à mémoire de forme reprend sa place instantanément pour offrir le même confort du matin au soir.
+                    </p>
+                </div>
+                <div className="order-1 md:order-2 rounded-3xl overflow-hidden shadow-xl h-[400px]">
+                    <img 
+                        src="https://i.postimg.cc/bJbWCrRf/Chat-GPT-Image-24-fevr-2026-21-06-34.png" 
+                        alt="Technologie anti-fatigue - semelle confort" 
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    />
+                </div>
+            </div>
 
-    {/* Section 3: Text Left, Image Right - Adaptabilité */}
-   <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-    {/* Image à gauche */}
-    <div className="rounded-3xl overflow-hidden shadow-xl h-[400px]">
-        <img 
-            src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop" 
-            alt="Adaptabilité à toutes les chaussures" 
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-        />
-    </div>
-    
-    {/* Texte à droite */}
-    <div>
-        <h3 className="text-3xl font-bold text-stone-900 mb-6">S'adapte à toutes vos chaussures</h3>
-        <p className="text-lg text-stone-600 leading-relaxed mb-6">
-            Baskets, chaussures de ville, bottines ou chaussures de sécurité : la Velors Signature est ultra-fine et découpable.
-        </p>
-        <p className="text-lg text-stone-600 leading-relaxed">
-            Elle remplace avantageusement n'importe quelle semelle d'origine en quelques secondes. Des guides de coupe précis sont imprimés au verso pour un ajustement millimétré.
-        </p>
-    </div>
-</div>
-</div>
+            {/* Section 3: Text Left, Image Right - Adaptabilité */}
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Image à gauche */}
+            <div className="rounded-3xl overflow-hidden shadow-xl h-[400px]">
+                <img 
+                    src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop" 
+                    alt="Adaptabilité à toutes les chaussures" 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                />
+            </div>
+            
+            {/* Texte à droite */}
+            <div>
+                <h3 className="text-3xl font-bold text-stone-900 mb-6">S'adapte à toutes vos chaussures</h3>
+                <p className="text-lg text-stone-600 leading-relaxed mb-6">
+                    Baskets, chaussures de ville, bottines ou chaussures de sécurité : la Velors Signature est ultra-fine et découpable.
+                </p>
+                <p className="text-lg text-stone-600 leading-relaxed">
+                    Elle remplace avantageusement n'importe quelle semelle d'origine en quelques secondes. Des guides de coupe précis sont imprimés au verso pour un ajustement millimétré.
+                </p>
+            </div>
+        </div>
+        </div>
 
         {/* ANGLE 2: Santé & Posture */}
         <section className="mt-20 sm:mt-24 lg:mt-32 bg-stone-900 rounded-2xl sm:rounded-[3rem] p-6 sm:p-12 lg:p-20 text-white overflow-hidden relative">
@@ -567,126 +576,4 @@ const ProductDetail: React.FC = () => {
               {
                 title: "Le Sport & Loisirs",
                 desc: "Transformez vos sneakers lifestyle en véritables alliées pour vos longues marches dominicales.",
-                img: "https://z-p3-scontent.flfw1-1.fna.fbcdn.net/v/t1.15752-9/613136778_895313113196456_8925653141940045873_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGO7D4HaP_95-QZALSZyagLr_V1TKbXygOv9XVMptfKA5Qi7EIxnP59c3if-7Vu-hdJQwLyFPl3R8cB1aPJ-MgM&_nc_ohc=LDtYocmxHYgQ7kNvwG746aB&_nc_oc=AdlStdzXpRrdkrig-EQX9OGFw9poustXltsL3O0yydKY9frg5MPmk1ME_Ypkc-HwJg0&_nc_zt=23&_nc_ht=z-p3-scontent.flfw1-1.fna&oh=03_Q7cD4gHAdZmKYXaR6MwbihV4sptxbcnGA6amLCbLpCC5QM9P3Q&oe=69BBE544"
-              },
-              {
-                title: "Voyages",
-                desc: "Parcourez des villes entières sans ressentir de brûlures plantaires en fin de journée.",
-                img: "https://i.pinimg.com/1200x/9c/88/c7/9c88c71ca0a3aec5597b9f05c556a3bd.jpg"
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden border border-stone-100 shadow-sm group hover:shadow-xl transition-shadow">
-                <div className="h-40 sm:h-44 lg:h-48 overflow-hidden">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                </div>
-                <div className="p-4 sm:p-5 lg:p-6">
-                  <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-1 sm:mb-2">{item.title}</h3>
-                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* SECTION TÉMOIGNAGES - Avis clients du Bénin */}
-        <section className="mt-20 sm:mt-24 lg:mt-32">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10 sm:mb-12 lg:mb-16">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900">Ils marchent avec Velors au Bénin</h2>
-              <div className="flex justify-center mt-3 sm:mt-4 text-velors-orange">
-                <Star fill="currentColor" size={20} className="sm:w-6 sm:h-6" />
-                <Star fill="currentColor" size={20} className="sm:w-6 sm:h-6" />
-                <Star fill="currentColor" size={20} className="sm:w-6 sm:h-6" />
-                <Star fill="currentColor" size={20} className="sm:w-6 sm:h-6" />
-                <Star fill="currentColor" size={20} className="sm:w-6 sm:h-6" />
-              </div>
-              <p className="mt-2 font-medium text-stone-600 text-sm sm:text-base">4.9/5 basé sur +1000 avis</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-              {[
-                { 
-                  name: "Basile TCHIBOZO", 
-                  role: "Zémidjan à Cotonou", 
-                  text: "Je roule toute la journée sous le soleil. Avec Velors, mes pieds ne glissent plus sur la pédale et j'ai moins mal aux genoux le soir. Mes collègues zémidjans devraient tous en acheter!" 
-                },
-                { 
-                  name: "Félicien GANGBE", 
-                  role: "Maçon à Godomey", 
-                  text: "Toute la journée sur les chantiers, les pieds en souffrent. Un collègue m'a parlé de Velors. Maintenant je mets ça dans mes bottes de chantier, fini les ampoules et la fatigue." 
-                },
-                { 
-                  name: "Rachida TOURE", 
-                  role: "Enseignante à Porto-Novo", 
-                  text: "Rester debout devant le tableau toute la journée, c'est épuisant. Mes collègues ont remarqué que je ne me plains plus de mes jambes. C'est Velors le secret!" 
-                }
-              ].map((review, idx) => (
-                <div key={idx} className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-stone-100 hover:shadow-lg transition-shadow">
-                  <div className="flex gap-1 text-velors-orange mb-3 sm:mb-4">
-                    {[1,2,3,4,5].map(s => <Star key={s} size={16} fill="currentColor" />)}
-                  </div>
-                  <p className="text-stone-700 mb-4 sm:mb-6 italic text-sm sm:text-base">"{review.text}"</p>
-                  <div className="flex items-center">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-velors-orange/20 rounded-full flex items-center justify-center font-bold text-velors-orange text-xs sm:text-sm">
-                      {review.name.charAt(0)}
-                    </div>
-                    <div className="ml-3">
-                      <p className="font-bold text-stone-900 text-xs sm:text-sm">{review.name}</p>
-                      <p className="text-xs text-stone-500">{review.role}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Detailed FAQ / Trust Section */}
-        <div className="mt-20 sm:mt-24 lg:mt-32 max-w-4xl mx-auto px-4">
-          <div className="bg-white p-6 sm:p-8 lg:p-12 rounded-2xl sm:rounded-[2rem] shadow-sm border border-stone-100">
-            <h2 className="text-xl sm:text-2xl font-bold text-stone-900 mb-6 sm:mb-8 text-center flex items-center justify-center gap-2 sm:gap-3">
-              <ShieldCheck className="text-velors-orange w-5 h-5 sm:w-6 sm:h-6" />
-              Votre satisfaction est notre priorité
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
-              <div>
-                <h3 className="font-bold text-base sm:text-lg mb-2">Comment l'ajuster ?</h3>
-                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                  La semelle est pré-découpée. Si elle est un peu large, utilisez votre ancienne semelle comme guide et coupez l'excédent avec de simples ciseaux. C'est un jeu d'enfant.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-bold text-base sm:text-lg mb-2">Paiement à la livraison</h3>
-                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                  Pas de carte bancaire à entrer. Vous commandez en 2 clics, vous recevez votre colis, et vous payez le livreur uniquement quand le produit est chez vous.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center border-t border-stone-100 pt-8 sm:pt-12">
-              <p className="text-stone-800 font-bold text-base sm:text-lg mb-4 sm:mb-6 text-center px-4">
-                Prêt à transformer votre quotidien ?
-              </p>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="bg-velors-orange text-white px-8 sm:px-12 py-4 sm:py-5 rounded-full text-base sm:text-xl font-bold hover:bg-orange-600 transition-all shadow-lg sm:shadow-xl shadow-orange-900/20 transform hover:-translate-y-1 flex items-center gap-2 sm:gap-3"
-              >
-                COMMANDER MAINTENANT
-                <ArrowLeft className="rotate-180 w-4 h-4 sm:w-5 sm:h-5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <OrderModal 
-        product={product} 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
-    </div>
-  );
-};
-
-export default ProductDetail;
+                img: "https://z-p3-scontent.flfw1-1.fna.fbcdn.net/v/t1.15752-9/613136778_895313113196456_8925653141940045873_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGO7D4HaP_95-QZALSZy
