@@ -243,7 +243,82 @@ const ProductDetail: React.FC = () => {
             <p className="text-sm sm:text-base text-stone-600 mb-6 sm:mb-8 italic border-l-4 border-velors-orange pl-4">
               Oubliez la sensation de pieds lourds. La Velors Signature est la seule semelle qui s'adapte à votre morphologie unique pour un soutien millimétré.
             </p>
+            {/* SECTION PACK ÉCONOMIQUE - À AJOUTER ICI */}
+<div className="bg-gradient-to-br from-amber-50 to-orange-50 p-6 sm:p-8 rounded-2xl border-2 border-velors-orange/30 shadow-lg mb-8 relative overflow-hidden">
+  {/* Badge "Économisez jusqu'à 2000 F" */}
+  <div className="absolute top-3 right-3 bg-velors-orange text-white text-xs font-bold px-3 py-1.5 rounded-full rotate-3 shadow-lg">
+    JUSQU'À -13%
+  </div>
+  
+  <h3 className="text-xl sm:text-2xl font-bold text-stone-900 mb-4 flex items-center gap-2">
+    <Package className="text-velors-orange" size={24} />
+    Achetez en pack, économisez !
+  </h3>
+  
+  <p className="text-stone-600 mb-6 text-sm sm:text-base">
+    Glissez une paire dans toutes vos chaussures ou partagez avec un proche.
+  </p>
 
+  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    {/* Pack 1 paire */}
+    <div className="bg-white rounded-xl p-4 border-2 border-stone-200 hover:border-velors-orange/50 transition-all cursor-pointer group">
+      <div className="text-center">
+        <span className="text-xs font-semibold text-stone-500 uppercase tracking-wide">1 Paire</span>
+        <div className="text-2xl font-bold text-stone-900 my-2">5 000 F</div>
+        <div className="text-xs text-stone-500">À l'unité</div>
+        <div className="mt-3 text-xs text-stone-400">Idéal pour tester</div>
+      </div>
+    </div>
+
+    {/* Pack 2 paires - Meilleure vente */}
+    <div className="bg-white rounded-xl p-4 border-2 border-velors-orange shadow-xl relative transform hover:-translate-y-1 transition-all cursor-pointer group">
+      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-velors-orange text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+        MEILLEUR CHOIX ⭐
+      </div>
+      <div className="text-center">
+        <span className="text-xs font-semibold text-stone-500 uppercase tracking-wide">Pack Duo</span>
+        <div className="text-2xl font-bold text-velors-orange my-2">8 000 F</div>
+        <div className="flex items-center justify-center gap-2 text-sm">
+          <span className="line-through text-stone-400">10 000 F</span>
+          <span className="text-green-600 font-bold">-20%</span>
+        </div>
+        <div className="mt-2 text-xs text-stone-600">
+          <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
+            Économisez 2 000 F
+          </span>
+        </div>
+        <div className="mt-3 text-xs text-stone-500">
+          Soit <span className="font-bold text-stone-900">4 000 F</span> la paire
+        </div>
+      </div>
+    </div>
+
+    {/* Pack 3 paires */}
+    <div className="bg-white rounded-xl p-4 border-2 border-stone-200 hover:border-velors-orange/50 transition-all cursor-pointer group">
+      <div className="text-center">
+        <span className="text-xs font-semibold text-stone-500 uppercase tracking-wide">Pack Max</span>
+        <div className="text-2xl font-bold text-stone-900 my-2">13 000 F</div>
+        <div className="flex items-center justify-center gap-2 text-sm">
+          <span className="line-through text-stone-400">15 000 F</span>
+          <span className="text-green-600 font-bold">-13%</span>
+        </div>
+        <div className="mt-2 text-xs text-stone-600">
+          <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-full">
+            Économisez 2 000 F
+          </span>
+        </div>
+        <div className="mt-3 text-xs text-stone-500">
+          Soit <span className="font-bold text-stone-900">4 333 F</span> la paire
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Message rassurant */}
+  <p className="text-xs text-center text-stone-500 mt-4">
+    🚚 Livraison offerte dès 2 paires • Paiement à la livraison
+  </p>
+</div>
             {/* Caractéristiques */}
             <div className="bg-white p-10 sm:p-35 rounded-xl sm:rounded-2xl border border-stone-100 shadow-sm mb-6 sm:mb-8">
                <h3 className="font-bold text-stone-900 mb-3 sm:mb-4 flex items-center gap-2 text-base sm:text-lg">
