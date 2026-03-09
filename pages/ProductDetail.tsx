@@ -244,13 +244,13 @@ const ProductDetail: React.FC = () => {
               Oubliez la sensation de pieds lourds. La Velors Signature est la seule semelle qui s'adapte à votre morphologie unique pour un soutien millimétré.
             </p>
 
-            {/* Zone combinée Packs + Caractéristiques - côte à côte */}
+            {/* Zone combinée Packs + Caractéristiques - côte à côte avec même hauteur */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 sm:mb-8">
               
               {/* SECTION PACK ÉCONOMIQUE */}
-              <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-2xl border-2 border-velors-orange/30 shadow-lg relative overflow-hidden h-fit">
+              <div className="bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-2xl border-2 border-velors-orange/30 shadow-lg relative overflow-hidden flex flex-col h-full">
                 {/* Badge "Économisez jusqu'à 2000 F" */}
-                <div className="absolute top-3 right-3 bg-velors-orange text-white text-xs font-bold px-3 py-1.5 rounded-full rotate-3 shadow-lg">
+                <div className="absolute top-3 right-3 bg-velors-orange text-white text-xs font-bold px-3 py-1.5 rounded-full rotate-3 shadow-lg z-10">
                   JUSQU'À -13%
                 </div>
                 
@@ -263,7 +263,7 @@ const ProductDetail: React.FC = () => {
                   Glissez une paire dans toutes vos chaussures ou partagez avec un proche.
                 </p>
 
-                <div className="space-y-3">
+                <div className="space-y-3 flex-1">
                   {/* Pack 1 paire */}
                   <div className="bg-white rounded-xl p-3 border-2 border-stone-200 hover:border-velors-orange/50 transition-all cursor-pointer">
                     <div className="flex items-center justify-between">
@@ -328,12 +328,12 @@ const ProductDetail: React.FC = () => {
               </div>
 
               {/* Caractéristiques */}
-              <div className="bg-white p-6 rounded-2xl border border-stone-100 shadow-sm h-fit">
+              <div className="bg-white p-6 rounded-2xl border border-stone-100 shadow-sm flex flex-col h-full">
                  <h3 className="font-bold text-stone-900 mb-3 flex items-center gap-2 text-base">
                      <Package size={18} className="text-velors-orange" />
                      Caractéristiques Premium :
                  </h3>
-                 <ul className="space-y-2">
+                 <ul className="space-y-2 flex-1">
                     {product.features.map((feat, idx) => (
                         <li key={idx} className="flex items-start text-xs text-stone-700">
                             <CheckCircle size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
