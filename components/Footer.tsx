@@ -83,13 +83,6 @@ const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-
-            {/* Business Hours */}
-            <div className="mt-4 pt-4 border-t border-stone-800">
-              <p className="text-xs sm:text-sm text-stone-500">
-                📞 Disponible 7j/7 de 9h à 19h
-              </p>
-            </div>
           </div>
         </div>
       </div>

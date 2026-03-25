@@ -192,16 +192,7 @@ const ProductDetail: React.FC = () => {
                     </div>
                     <div className="text-xs sm:text-sm">
                         <p className="font-bold text-stone-900">Livraison</p>
-                        <p className="text-stone-500">14 jours au plus</p>
-                    </div>
-                </div>
-                <div className="bg-white p-2 sm:p-4 rounded-lg sm:rounded-xl shadow-sm border border-stone-100 flex items-center gap-2 sm:gap-3">
-                    <div className="bg-blue-100 p-1.5 sm:p-2 rounded-full text-blue-700">
-                      <Shield size={16} className="sm:w-5 sm:h-5" />
-                    </div>
-                    <div className="text-xs sm:text-sm">
-                        <p className="font-bold text-stone-900">Garantie</p>
-                        <p className="text-stone-500">30 jours</p>
+                        <p className="text-stone-500">24h au plus</p>
                     </div>
                 </div>
             </div>
@@ -244,8 +235,63 @@ const ProductDetail: React.FC = () => {
               Oubliez la sensation de pieds lourds. La Velors Signature est la seule semelle qui s'adapte à votre morphologie unique pour un soutien millimétré.
             </p>
 
+            {/* SECTION PACK ÉCONOMIQUE - À AJOUTER ICI */}
+<div className="bg-gradient-to-br from-amber-50 to-orange-50 p-6 sm:p-8 rounded-2xl border-2 border-velors-orange/30 shadow-lg mb-8 relative overflow-hidden">
+  {/* Badge "Économisez jusqu'à 2000 F" */}
+  <div className="absolute top-3 right-3 bg-velors-orange text-white text-xs font-bold px-3 py-1.5 rounded-full rotate-3 shadow-lg">
+    JUSQU'À -13%
+  </div>
+  
+  <h3 className="text-xl sm:text-2xl font-bold text-stone-900 mb-4 flex items-center gap-2">
+    <Package className="text-velors-orange" size={24} />
+    Achetez en pack, économisez !
+  </h3>
+  
+  <p className="text-stone-600 mb-6 text-sm sm:text-base">
+    Glissez une paire dans toutes vos chaussures ou partagez avec un proche.
+  </p>
+
+  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    {/* Pack 1 paire */}
+    <div className="bg-white rounded-xl p-4 border-2 border-stone-200 hover:border-velors-orange/50 transition-all cursor-pointer group">
+      <div className="text-center">
+        <span className="text-xs font-semibold text-stone-500 uppercase tracking-wide">1 Paire</span>
+        <div className="text-2xl font-bold text-stone-900 my-2">5 000 F</div>
+        <div className="text-xs text-stone-500">À l'unité</div>
+      </div>
+    </div>
+
+    {/* Pack 2 paires - Meilleure vente */}
+    <div className="bg-white rounded-xl p-4 border-2 border-velors-orange shadow-xl relative transform hover:-translate-y-1 transition-all cursor-pointer group">
+      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-velors-orange text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+        MEILLEUR CHOIX ⭐
+      </div>
+      <div className="text-center">
+        <span className="text-xs font-semibold text-stone-500 uppercase tracking-wide">Pack Duo</span>
+        <div className="text-2xl font-bold text-velors-orange my-2">8 000 F</div>
+        <div className="flex items-center justify-center gap-2 text-sm">
+          <span className="line-through text-stone-400">10 000 F</span>
+          <span className="text-green-600 font-bold">-20%</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Pack 3 paires */}
+    <div className="bg-white rounded-xl p-4 border-2 border-stone-200 hover:border-velors-orange/50 transition-all cursor-pointer group">
+      <div className="text-center">
+        <span className="text-xs font-semibold text-stone-500 uppercase tracking-wide">Pack Max</span>
+        <div className="text-2xl font-bold text-stone-900 my-2">13 000 F</div>
+        <div className="flex items-center justify-center gap-2 text-sm">
+          <span className="line-through text-stone-400">15 000 F</span>
+          <span className="text-green-600 font-bold">-13%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
             {/* Caractéristiques */}
-            <div className="bg-white p-10 sm:p-35 rounded-xl sm:rounded-2xl border border-stone-100 shadow-sm mb-6 sm:mb-8">
+            <div className="bg-white p-3 sm:p-35 rounded-xl sm:rounded-2xl border border-stone-100 shadow-sm mb-6 sm:mb-8">
                <h3 className="font-bold text-stone-900 mb-3 sm:mb-4 flex items-center gap-2 text-base sm:text-lg">
                    <Package size={18} className="sm:w-5 sm:h-5 text-velors-orange" />
                    Caractéristiques Premium :
@@ -264,7 +310,7 @@ const ProductDetail: React.FC = () => {
             <div className="mt-auto">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="w-full bg-stone-900 text-white py-4 sm:py-6 rounded-xl sm:rounded-2xl text-base sm:text-xl font-bold hover:bg-velors-orange transition-all duration-300 transform hover:-translate-y-1 shadow-lg sm:shadow-xl shadow-stone-900/20 flex items-center justify-center gap-2 sm:gap-3"
+                  className="w-full bg-stone-900 text-white py-4 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-xl font-bold hover:bg-velors-orange transition-all duration-300 transform hover:-translate-y-1 shadow-lg sm:shadow-xl shadow-stone-900/20 flex items-center justify-center gap-2 sm:gap-3"
                 >
                   COMMANDER MAINTENANT
                   <ArrowLeft className="rotate-180 w-4 h-4 sm:w-5 sm:h-5" />
@@ -487,21 +533,21 @@ const ProductDetail: React.FC = () => {
               {
                 title: "Le Travail",
                 desc: "Idéal pour ceux qui piétinent dans des chaussures de ville ou des baskets de bureau.",
-                img: "https://z-p3-scontent.flfw1-1.fna.fbcdn.net/v/t1.15752-9/633733928_782928097643555_3792125365186889553_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFmW-2C9E3XqaSgsetHGFAo2AIZf7MP8RvYAhl_sw_xG7NiPz4O8Twyk16kR27R9z_CLE6s0cPDHMa6jssdjFpR&_nc_ohc=jK0g1TvNtysQ7kNvwEWpJWO&_nc_oc=AdmD6OS4vFVSLx4RhmI4k_BKvZVAeUGMGmVBc9cXf9ZoJRqN98QDtnKlH93BCgWznnc&_nc_zt=23&_nc_ht=z-p3-scontent.flfw1-1.fna&oh=03_Q7cD4gEj553GuM_u8b1v2k4CWDsTFhD_x8f1mR7_ioPRrM8T5Q&oe=69BBC192"
+                img: "/images/work.jpg"
               },
               {
                 title: "Le Sport & Loisirs",
                 desc: "Transformez vos sneakers lifestyle en véritables alliées pour vos longues marches dominicales.",
-                img: "https://z-p3-scontent.flfw1-1.fna.fbcdn.net/v/t1.15752-9/613136778_895313113196456_8925653141940045873_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGO7D4HaP_95-QZALSZyagLr_V1TKbXygOv9XVMptfKA5Qi7EIxnP59c3if-7Vu-hdJQwLyFPl3R8cB1aPJ-MgM&_nc_ohc=LDtYocmxHYgQ7kNvwG746aB&_nc_oc=AdlStdzXpRrdkrig-EQX9OGFw9poustXltsL3O0yydKY9frg5MPmk1ME_Ypkc-HwJg0&_nc_zt=23&_nc_ht=z-p3-scontent.flfw1-1.fna&oh=03_Q7cD4gHAdZmKYXaR6MwbihV4sptxbcnGA6amLCbLpCC5QM9P3Q&oe=69BBE544"
+                img: "/images/loisirs.jpg"
               },
               {
                 title: "Voyages",
                 desc: "Parcourez des villes entières sans ressentir de brûlures plantaires en fin de journée.",
-                img: "https://i.pinimg.com/1200x/9c/88/c7/9c88c71ca0a3aec5597b9f05c556a3bd.jpg"
+                img: "/images/airport.jpg"
               }
             ].map((item, idx) => (
               <div key={idx} className="bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden border border-stone-100 shadow-sm group hover:shadow-xl transition-shadow">
-                <div className="h-40 sm:h-44 lg:h-48 overflow-hidden">
+                <div className="h-45 sm:h-50 lg:h-64 overflow-hidden">
                   <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div className="p-4 sm:p-5 lg:p-6">

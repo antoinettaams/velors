@@ -11,7 +11,7 @@ const Home: React.FC = () => {
         {/* Background Image Container */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://z-p3-scontent.flfw1-1.fna.fbcdn.net/v/t1.15752-9/634069810_1971851520035254_5512413284136601063_n.png?_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHtHawFEqoSAIcs6wv9noN5MbtR4A6kUE0xu1HgDqRQTZg9jBEERo_OPoMFNw_zabi1cqVf6e4U1M_Y2Pk3_SvY&_nc_ohc=GIdPRKcBQTwQ7kNvwGrm09N&_nc_oc=Admk32NQHDYr6duPHi0Cf9U_4LoxabzZjiLHNImg--DF0hc9onKh_xjQYEmwauPyePw&_nc_zt=23&_nc_ht=z-p3-scontent.flfw1-1.fna&oh=03_Q7cD4gHMp6G0zNMiu_QcrBzVdsPLtZW9Uk2fD1SlS_LxPiIf4Q&oe=69BBECBE" 
+            src="/images/hero.png" 
             alt="Urban lifestyle" 
             className="w-full h-full object-cover opacity-90"
           />
@@ -227,7 +227,7 @@ const Home: React.FC = () => {
       {/* Lifestyle Section */}
       <section className="py-0 grid grid-cols-1 md:grid-cols-2">
           <div className="h-[300px] sm:h-[400px] lg:h-[500px] relative group overflow-hidden">
-              <img src="https://z-p3-scontent.flfw1-1.fna.fbcdn.net/v/t1.15752-9/633733928_782928097643555_3792125365186889553_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFmW-2C9E3XqaSgsetHGFAo2AIZf7MP8RvYAhl_sw_xG7NiPz4O8Twyk16kR27R9z_CLE6s0cPDHMa6jssdjFpR&_nc_ohc=jK0g1TvNtysQ7kNvwEWpJWO&_nc_oc=AdmD6OS4vFVSLx4RhmI4k_BKvZVAeUGMGmVBc9cXf9ZoJRqN98QDtnKlH93BCgWznnc&_nc_zt=23&_nc_ht=z-p3-scontent.flfw1-1.fna&oh=03_Q7cD4gEj553GuM_u8b1v2k4CWDsTFhD_x8f1mR7_ioPRrM8T5Q&oe=69BBC192" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Working" />
+              <img src="/images/work.jpg" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Working" />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-4 sm:p-8">
                   <div className="text-center">
                       <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1 sm:mb-2">Au Travail</h3>
@@ -236,7 +236,7 @@ const Home: React.FC = () => {
               </div>
           </div>
           <div className="h-[300px] sm:h-[400px] lg:h-[500px] relative group overflow-hidden">
-              <img src="https://z-p3-scontent.flfw1-1.fna.fbcdn.net/v/t1.15752-9/613136778_895313113196456_8925653141940045873_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGO7D4HaP_95-QZALSZyagLr_V1TKbXygOv9XVMptfKA5Qi7EIxnP59c3if-7Vu-hdJQwLyFPl3R8cB1aPJ-MgM&_nc_ohc=LDtYocmxHYgQ7kNvwG746aB&_nc_oc=AdlStdzXpRrdkrig-EQX9OGFw9poustXltsL3O0yydKY9frg5MPmk1ME_Ypkc-HwJg0&_nc_zt=23&_nc_ht=z-p3-scontent.flfw1-1.fna&oh=03_Q7cD4gHAdZmKYXaR6MwbihV4sptxbcnGA6amLCbLpCC5QM9P3Q&oe=69BBE544" alt="Walking" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <img src="/images/loisirs.jpg" />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-4 sm:p-8">
                   <div className="text-center">
                       <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1 sm:mb-2">En Balade</h3>

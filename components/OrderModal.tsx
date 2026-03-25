@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Product, OrderForm } from '../types';
 import { SIZES } from '../constants';
 import { X, Check } from 'lucide-react';
@@ -11,6 +11,15 @@ interface OrderModalProps {
   onClose: () => void;
 }
 
+// Configuration des packs
+const PACK_CONFIG = {
+  1: { price: 5000, label: '1 paire' },
+  2: { price: 8000, label: '2 paires' },
+  3: { price: 13000, label: '3 paires' }
+};
+
+type PackQuantity = 1 | 2 | 3;
+
 const OrderModal: React.FC<OrderModalProps> = ({ product, isOpen, onClose }) => {
   const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState<OrderForm>({
@@ -22,16 +31,30 @@ const OrderModal: React.FC<OrderModalProps> = ({ product, isOpen, onClose }) => 
     zip: '',
     size: SIZES[2], // Default size 40-41
     quantity: 1,
-    color: product.colors?.[0] || '' // Ajout de la couleur
+    color: product.colors?.[0] || ''
   });
+  const [packQuantity, setPackQuantity] = useState<PackQuantity>(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Calculer le prix total en fonction du pack
+  const totalPrice = PACK_CONFIG[packQuantity].price;
+
+  // Mettre à jour la quantité dans le formulaire quand le pack change
+  useEffect(() => {
+    setFormData(prev => ({ ...prev, quantity: packQuantity }));
+  }, [packQuantity]);
 
   if (!isOpen) return null;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handlePackChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = parseInt(e.target.value) as PackQuantity;
+    setPackQuantity(value);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -43,13 +66,14 @@ const OrderModal: React.FC<OrderModalProps> = ({ product, isOpen, onClose }) => 
 
     // Préparer les données pour l'email
     const templateParams = {
-      to_email: 'antoinettaams@gmail.com', // Votre email
+      to_email: 'antoinettaams@gmail.com',
       from_name: `${formData.firstName} ${formData.lastName}`,
       phone: formData.phone,
       product_name: product.name,
       product_price: product.price.toLocaleString('fr-FR'),
-      quantity: formData.quantity,
-      total: (product.price * formData.quantity).toLocaleString('fr-FR'),
+      quantity: packQuantity,
+      pack_label: PACK_CONFIG[packQuantity].label,
+      total: totalPrice.toLocaleString('fr-FR'),
       size: formData.size,
       color: formData.color || 'Non spécifié',
       address: formData.address,
@@ -58,12 +82,11 @@ const OrderModal: React.FC<OrderModalProps> = ({ product, isOpen, onClose }) => 
     };
 
     try {
-      // Remplacez par VOS identifiants EmailJS (à créer sur le site)
       const result = await emailjs.send(
-        'service_9dyt6r5',      // À remplacer par votre Service ID
-        'template_vj3tbqj',     // À remplacer par votre Template ID
+        'service_9dyt6r5',
+        'template_vj3tbqj',
         templateParams,
-        '2Cxl4zAIlZtGPOPCt'       // À remplacer par votre Public Key
+        '2Cxl4zAIlZtGPOPCt'
       );
 
       if (result.status === 200) {
@@ -123,8 +146,9 @@ const OrderModal: React.FC<OrderModalProps> = ({ product, isOpen, onClose }) => 
               </div>
               <h3 className="text-2xl font-semibold leading-6 text-stone-900">Commande Confirmée !</h3>
               <p className="mt-4 text-stone-500">
-                Merci {formData.firstName}. Votre commande pour les <span className="font-semibold">{product.name}</span> a bien été reçue.
+                Merci {formData.firstName}. Votre commande pour <span className="font-semibold">{PACK_CONFIG[packQuantity].label}</span> de <span className="font-semibold">{product.name}</span> a bien été reçue.
                 <br/>Couleur : {formData.color} - Taille : {formData.size}
+                <br/>Total : {totalPrice.toLocaleString('fr-FR')} FCFA
                 <br/>Vous paierez à la livraison.
               </p>
               <button 
@@ -210,7 +234,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ product, isOpen, onClose }) => 
                       className="mt-1 block w-full rounded-md border-stone-300 bg-stone-50 py-2 px-3 shadow-sm focus:border-velors-orange focus:ring-velors-orange sm:text-sm outline-none border"
                     />
                   </div>
-                   <div>
+                  <div>
                     <label htmlFor="color" className="block text-xs font-medium text-stone-700 uppercase tracking-wide">Couleur</label>
                     <select
                       id="color"
@@ -240,27 +264,31 @@ const OrderModal: React.FC<OrderModalProps> = ({ product, isOpen, onClose }) => 
                       {SIZES.map(s => <option key={s} value={s}>{s}</option>)}
                     </select>
                   </div>
-                   <div>
-                  <label htmlFor="quantity" className="block text-xs font-medium text-stone-700 uppercase tracking-wide">Quantité</label>
-                  <input
-                    type="number"
-                    name="quantity"
-                    id="quantity"
-                    min="1"
-                    max="10"
-                    value={formData.quantity}
-                    onChange={handleChange}
-                    className="mt-1 block w-full rounded-md border-stone-300 bg-white py-2 px-3 shadow-sm focus:border-velors-orange focus:ring-velors-orange sm:text-sm outline-none border"
-                  />
+                  <div>
+                    <label htmlFor="pack" className="block text-xs font-medium text-stone-700 uppercase tracking-wide">Pack</label>
+                    <select
+                      id="pack"
+                      name="pack"
+                      value={packQuantity}
+                      onChange={handlePackChange}
+                      className="mt-1 block w-full rounded-md border-stone-300 bg-white py-2 px-3 shadow-sm focus:border-velors-orange focus:ring-velors-orange sm:text-sm outline-none border"
+                    >
+                      <option value={1}>1 paire - 5 000 FCFA</option>
+                      <option value={2}>2 paires - 8 000 FCFA</option>
+                      <option value={3}>3 paires - 13 000 FCFA</option>
+                    </select>
+                    {packQuantity > 1 && (
+                      <p className="text-xs text-green-600 mt-1">
+                        ✨ Économie de {((PACK_CONFIG[1].price * packQuantity) - PACK_CONFIG[packQuantity].price).toLocaleString('fr-FR')} FCFA !
+                      </p>
+                    )}
+                  </div>
                 </div>
 
-                </div>
-
-               
                 <div className="pt-4 flex items-center justify-between border-t border-stone-100">
                   <span className="text-lg font-bold text-stone-900">Total</span>
                   <span className="text-lg font-bold text-velors-orange">
-                    {(product.price * formData.quantity).toLocaleString('fr-FR')} FCFA
+                    {totalPrice.toLocaleString('fr-FR')} FCFA
                   </span>
                 </div>
 
@@ -271,7 +299,7 @@ const OrderModal: React.FC<OrderModalProps> = ({ product, isOpen, onClose }) => 
                     isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
                   }`}
                 >
-                  {isSubmitting ? 'Envoi en cours...' : 'Confirmer la Commande'}
+                  {isSubmitting ? 'Envoi en cours...' : `Confirmer la commande (${PACK_CONFIG[packQuantity].label})`}
                 </button>
               </form>
             </div>
