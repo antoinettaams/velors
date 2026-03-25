@@ -195,6 +195,15 @@ const ProductDetail: React.FC = () => {
                         <p className="text-stone-500">24h au plus</p>
                     </div>
                 </div>
+                <div className="bg-white p-2 sm:p-4 rounded-lg sm:rounded-xl shadow-sm border border-stone-100 flex items-center gap-2 sm:gap-3">
+                  <div className="bg-blue-100 p-1.5 sm:p-2 rounded-full text-blue-700">
+                    <Shield size={16} className="sm:w-5 sm:h-5" />
+                  </div>
+                  <div className="text-xs sm:text-sm">
+                    <p className="font-bold text-stone-900">Paiement</p>
+                    <p className="text-stone-500">A la livraison</p>
+                  </div>
+                </div>
             </div>
           </div>
 
