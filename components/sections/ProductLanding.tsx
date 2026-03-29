@@ -5,6 +5,11 @@ import {
   Flame, Award, Heart, Info
 } from 'lucide-react';
 
+// --- PROPS ---
+interface ProductLandingProps {
+  onOpenModal: () => void;
+}
+
 // --- DONNÉES ---
 const COLOR_VARIANTS = [
   { id: 'orange', name: 'Orange', hex: '#FF6B00', img: 'https://i.postimg.cc/bJbWCrRf/Chat-GPT-Image-24-fevr-2026-21-06-34.png' },
@@ -64,7 +69,7 @@ const FAQ_ITEMS = [
   }
 ];
 
-const ProductLanding: React.FC = () => {
+const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
   const [selectedColor, setSelectedColor] = useState(COLOR_VARIANTS[0]);
   const [activeImage, setActiveImage] = useState(COLOR_VARIANTS[0].img);
   const [selectedSize, setSelectedSize] = useState("");
@@ -212,7 +217,7 @@ const ProductLanding: React.FC = () => {
             </div>
 
             {/* Bouton CTA */}
-            <button className={`w-full py-3 rounded-xl font-black text-lg flex items-center justify-center gap-3 transition-all ${selectedSize ? 'bg-[#FF6B00] text-white shadow-xl shadow-orange-200' : 'bg-stone-300 text-white cursor-not-allowed'}`}>
+            <button onClick={onOpenModal} className={`w-full py-3 rounded-xl font-black text-lg flex items-center justify-center gap-3 transition-all ${selectedSize ? 'bg-[#FF6B00] text-white shadow-xl shadow-orange-200' : 'bg-stone-300 text-white cursor-not-allowed'}`}>
               {selectedSize ? "COMMANDER MAINTENANT" : "SÉLECTIONNEZ VOTRE POINTURE"}
               <ChevronRight size={20} />
             </button>

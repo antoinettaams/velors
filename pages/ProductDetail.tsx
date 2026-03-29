@@ -24,7 +24,7 @@ const ProductDetail: React.FC = () => {
   return (
     <div className="bg-white min-h-screen">
 
-      <ProductLanding/>
+      <ProductLanding onOpenModal={handleOpenModal}/>
       
       {/* 1. Section Vidéo - Hero */}
       <VideoSection
