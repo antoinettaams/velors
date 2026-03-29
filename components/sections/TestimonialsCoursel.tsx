@@ -74,7 +74,7 @@ const TestimonialCarousel = () => {
           <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
             Ils ont dit <span className="text-[#FF5C00]">Adieu aux douleurs</span>
           </h2>
-          <p className="text-gray-500 mt-4 font-medium">Découvrez pourquoi des milliers de Béninois font confiance à Stepprs.</p>
+          <p className="text-gray-500 mt-4 font-medium">Découvrez pourquoi des milliers de Béninois font confiance à Velors.</p>
         </div>
         
         {/* Boutons de Navigation Desktop */}
