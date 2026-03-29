@@ -24,7 +24,7 @@ const FinalCTASection = ({ onOpenModal }: { onOpenModal: () => void }) => {
             onClick={onOpenModal}
             className="w-full max-w-xs bg-[#FF5C00] hover:bg-[#e65300] text-white font-black py-3 px-4 rounded-lg text-base tracking-widest uppercase transition-all duration-300 transform hover:scale-[1.02] shadow-md active:scale-95"
           >
-            Commandez maintenant
+            Commander Velors
           </button>
 
           {/* BOUTON 2 : Hauteur réduite et texte plus fin */}

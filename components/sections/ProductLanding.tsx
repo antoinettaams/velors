@@ -30,7 +30,7 @@ const FAQ_ITEMS = [
     )
   },
   { 
-    q: "Les Stepprs sont-ils compatibles avec mes chaussures ?", 
+    q: "Les Velors sont-ils compatibles avec mes chaussures ?", 
     a: "Oui, elles sont compatibles pour s'adapter parfaitement à votre pointure habituelle et à tout type de chaussures fermées." 
   },
   { 
@@ -115,7 +115,7 @@ const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
                 </div>
                 <span className="text-xs font-bold text-stone-500">Excellent 4,8 | 1171 avis</span>
               </div>
-              <h1 className="text-4xl font-black mb-3 italic uppercase tracking-tighter">Semelles Velors</h1>
+              <h1 className="text-4xl font-black mb-3 uppercase tracking-tighter">Semelles Velors</h1>
               <div className="flex items-center gap-4">
                 <span className="text-3xl font-black text-[#FF6B00]">5000 FCFA</span>
               </div>
@@ -167,7 +167,8 @@ const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
             {[
                 { id: 1, qty: "1 paire", price: "5000 FCFA", originalPrice: "5000 FCFA", tag: null, savePercent: "0", discount: false },
                 { id: 2, qty: "2 paires", price: "8000 FCFA", originalPrice: "10000 FCFA", tag: "LES PLUS POPULAIRES", savePercent: "20", discount: true },
-            ].map((pack) => (
+                { id: 3, qty: "3 paires", price: "13000 FCFA", originalPrice: "15000 FCFA", tag: "Meilleur", savePercent: "20", discount: true },
+              ].map((pack) => (
                 <div 
                 key={pack.id} 
                 onClick={() => setSelectedPack(pack.id)}
@@ -201,9 +202,13 @@ const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
                         )}
                     </p>
                     <p className="text-[10px] font-bold text-stone-400">
-                        Économisez {pack.id === 2 ? '2000' : pack.id === 5 ? '4000' : '0'} FCFA 
+                      Économisez {
+                        pack.id === 2 ? '2000' : 
+                        pack.id === 3 ? '2000' : 
+                        pack.id === 5 ? '4000' : '0'
+                      } FCFA 
                     </p>
-                    </div>
+                  </div>
                 </div>
                 
                 <div className="text-right">
@@ -218,7 +223,7 @@ const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
 
             {/* Bouton CTA */}
             <button onClick={onOpenModal} className={`w-full py-3 rounded-xl font-black text-lg flex items-center justify-center gap-3 transition-all ${selectedSize ? 'bg-[#FF6B00] text-white shadow-xl shadow-orange-200' : 'bg-stone-300 text-white cursor-not-allowed'}`}>
-              {selectedSize ? "COMMANDER MAINTENANT" : "SÉLECTIONNEZ VOTRE POINTURE"}
+              {"COMMANDER"}
               <ChevronRight size={20} />
             </button>
 

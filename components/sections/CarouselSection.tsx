@@ -194,7 +194,7 @@ const CarouselSection: React.FC<CarouselProps> = ({ onOpenModal }) => {
                       onClick={onOpenModal} 
                       className="bg-orange-500 hover:bg-orange-600 text-white font-black py-3 px-8 rounded-lg text-base tracking-tighter uppercase transition-all transform hover:scale-105 shadow-md"
                     >
-                        Commandez maintenant
+                        Commander Velors
                     </button>
                   </div>
               </div>

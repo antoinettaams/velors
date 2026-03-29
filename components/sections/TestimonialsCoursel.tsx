@@ -7,7 +7,7 @@ const testimonials = [
     name: "Gino",
     role: "Ouvrier du bâtiment",
     image: "/images/testimonial-gino.jpg",
-    text: "Je passe mes journées sur un sol en béton avec des chaussures de sécurité à embout d'acier. Les Stepprs offrent un excellent amorti et un bon maintien, réduisant ainsi l'impact sur mes pieds et mes articulations. Je suis vraiment impressionné par leur efficacité. J'en ai parlé à tous mes collègues sur le chantier.",
+    text: "Je passe mes journées sur un sol en béton avec des chaussures de sécurité à embout d'acier. Les Velors offrent un excellent amorti et un bon maintien, réduisant ainsi l'impact sur mes pieds et mes articulations. Je suis vraiment impressionné par leur efficacité. J'en ai parlé à tous mes collègues sur le chantier.",
     rating: 5
   },
   {
@@ -23,7 +23,7 @@ const testimonials = [
     name: "Koffi",
     role: "Livreur à moto (Zémidjan)",
     image: "/images/testimonial-koffi.jpg",
-    text: "Conducteur de taxi-moto, mes pieds sont constamment sollicités pour stabiliser la moto. Avec ces semelles, je ne ressens plus la fatigue au niveau des talons le soir en rentrant à Calavi. C'est un investissement que chaque conducteur devrait faire pour sa santé.",
+    text: "Conducteur de taxi-moto, mes pieds sont constamment sollicités pour stabiliser la moto. Avec ces semelles, je ne ressens plus la fatigue au niveau des talons le soir en rentrant à chez moi. C'est un investissement que chaque conducteur devrait faire pour sa santé.",
     rating: 5
   },
   {
@@ -31,7 +31,7 @@ const testimonials = [
     name: "Awa",
     role: "Commerçante au Marché Dantokpa",
     image: "/images/testimonial-awa.jpg",
-    text: "Je marche énormément pour gérer mes stocks et servir mes clients. Avant, mes pieds brûlaient en fin de journée. Depuis que j'utilise les Stepprs dans mes chaussures fermées, je me sens légère. On dirait que je marche sur un tapis de mousse toute la journée !",
+    text: "Je marche énormément pour gérer mes stocks et servir mes clients. Avant, mes pieds brûlaient en fin de journée. Depuis que j'utilise les semelles Velors dans mes chaussures fermées, je me sens légère. On dirait que je marche sur un tapis de mousse toute la journée !",
     rating: 5
   },
   {
@@ -39,7 +39,7 @@ const testimonials = [
     name: "Ousmane",
     role: "Agent de sécurité",
     image: "/images/testimonial-ousmane.jpg",
-    text: "La station debout prolongée était un calvaire pour moi. Ces semelles ont changé ma vie professionnelle. Je n'ai plus ces douleurs lancinantes dans le bas du dos et mes pieds respirent mieux, même après une longue nuit de service à Parakou.",
+    text: "La station debout prolongée était un calvaire pour moi. Ces semelles ont changé ma vie professionnelle. Je n'ai plus ces douleurs lancinantes dans le bas du dos et mes pieds respirent mieux, même après une longue nuit de service.",
     rating: 5
   }
 ];
