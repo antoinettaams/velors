@@ -8,6 +8,8 @@ import ComparisonSectionVelors from '@/components/sections/ComparaisonVelorsSect
 import CarouselSection from '@/components/sections/CarouselSection'; 
 import FinalCTASection from '@/components/sections/FinalSection';
 import TestimonialCarousel from '@/components/sections/TestimonialsCoursel';
+import ProductLanding from '@/components/sections/ProductLanding';
+import ExpertSection from '@/components/sections/ExpertSection';
 
 const ProductDetail: React.FC = () => {
   const navigate = useNavigate();
@@ -21,6 +23,8 @@ const ProductDetail: React.FC = () => {
 
   return (
     <div className="bg-white min-h-screen">
+
+      <ProductLanding/>
       
       {/* 1. Section Vidéo - Hero */}
       <VideoSection
@@ -60,12 +64,15 @@ const ProductDetail: React.FC = () => {
 
       {/* 6. Section Tableau Comparatif (Stepprs vs Autres) */}
       <ComparisonSectionVelors />
+
+      {/* 7. ExpertSection */}
+      <ExpertSection/>
       
-      {/* 7. Section Finale de Conclusion (CTA) 
+      {/* 8. Section Finale de Conclusion (CTA) 
           Correction de l'erreur TS : on passe bien onOpenModal */}
       <FinalCTASection onOpenModal={handleOpenModal} />
 
-      {/* 8. Modal de commande (Portail de sortie) */}
+      {/* 9. Modal de commande (Portail de sortie) */}
       <OrderModal 
         product={product} 
         isOpen={isModalOpen} 
