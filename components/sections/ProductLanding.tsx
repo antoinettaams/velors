@@ -63,7 +63,7 @@ const FAQ_ITEMS = [
     a: (
         <span>
             Pour les personnes éloignées de Cotonou et Calavi, la livraison est assurée par <strong>expédition</strong>. 
-            Les frais d'envoi sont très accessibles, à partir de <strong>1 000 FCFA</strong> seulement, selon votre localité.
+            Les frais d'envoi sont très accessibles, à partir de <strong>1 500 FCFA</strong> seulement, selon votre localité.
         </span>
     )
   }
