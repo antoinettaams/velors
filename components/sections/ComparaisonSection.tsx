@@ -44,7 +44,7 @@ const ComparisonSection = () => {
             >
               {/* APRÈS */}
               <img
-                src="/images/aprs.png"
+                src="/images/aprs.jpg"
                 className="absolute inset-0 w-full h-full object-cover"
               />
 
@@ -58,7 +58,7 @@ const ComparisonSection = () => {
                 style={{ width: `${sliderPos}%` }}
               >
                 <img
-                  src="/images/avnt.png"
+                   src="/images/avat.jpg"
                   className="w-full h-full object-cover"
                 />
 

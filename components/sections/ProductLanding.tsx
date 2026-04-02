@@ -222,7 +222,7 @@ const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
             </div>
 
             {/* Bouton CTA */}
-            <button onClick={onOpenModal} className={`w-full py-3 rounded-xl font-black text-lg flex items-center justify-center gap-3 transition-all ${selectedSize ? 'bg-[#FF6B00] text-white shadow-xl shadow-orange-200' : 'bg-stone-300 text-white cursor-not-allowed'}`}>
+            <button onClick={onOpenModal} className={`w-full py-3 rounded-xl font-black text-lg flex items-center justify-center gap-3 transition-all ${selectedSize ? 'bg-[#FF5C00] text-white shadow-xl shadow-orange-200' : 'bg-stone-300 text-white cursor-not-allowed'}`}>
               {"COMMANDER"}
               <ChevronRight size={20} />
             </button>
