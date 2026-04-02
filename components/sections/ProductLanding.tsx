@@ -54,7 +54,7 @@ const FAQ_ITEMS = [
     q: "Les frais de livraison ?", 
     a: (
       <span>
-        La livraison est à partir de <strong>1000 Fcfa</strong> et est assurée <strong>à 50%</strong> si et seulement si vous résidez à Cotonou et Calavi.
+        La livraison est à partir de <strong>1000 Fcfa</strong>.
       </span>
     )
   },
