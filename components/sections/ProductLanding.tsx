@@ -11,13 +11,22 @@ interface ProductLandingProps {
 }
 
 // --- DONNÉES ---
+// Images principales par couleur
 const COLOR_VARIANTS = [
-  { id: 'orange', name: 'Orange', hex: '#FF6B00', img: 'https://i.postimg.cc/bJbWCrRf/Chat-GPT-Image-24-fevr-2026-21-06-34.png' },
-  { id: 'black', name: 'Noir', hex: '#1A1A1A', img: 'https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&q=80&w=600' },
-  { id: 'grey', name: 'Gris', hex: '#A9A9A9', img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=600' },
+  { id: 'orange', name: 'Orange', hex: '#FF6B00', img: 'https://i.postimg.cc/sf5mrYW7/662895872-1264974341798875-3017079383360505938-n.webp' },
+  { id: 'black', name: 'Noir', hex: '#1A1A1A', img: 'https://i.postimg.cc/Kzv8cSvS/663860608-1998635484024165-4860693603745811608-n.webp' },
+  { id: 'grey', name: 'Gris', hex: '#A9A9A9', img: 'https://i.postimg.cc/wvTjx8TK/664379257-1741346460574060-1245272136464532948-n.webp' },
 ];
 
-const SIZES = ["41 - 42", "42 - 43", "43 - 44", "44 - 45", "45 - 46",];
+// Galerie d'images (vues différentes du produit)
+const GALLERY_IMAGES = [
+  'https://i.postimg.cc/sf5mrYW7/662895872-1264974341798875-3017079383360505938-n.webp',
+  'https://i.postimg.cc/zGTHL7Jw/664523870-1484104823440380-7345008790606465324-n.webp',
+  'https://i.postimg.cc/6Q3kTjKv/659580858-1185550650172127-8655566203217296-n.webp',
+  'https://i.postimg.cc/52Fv11Y1/664342059-3295735543949452-4754534406177794302-n.webp',
+];
+
+const SIZES = ["41 - 42", "42 - 43", "43 - 44", "44 - 45", "45 - 46"];
 
 const FAQ_ITEMS = [
   { 
@@ -72,9 +81,33 @@ const FAQ_ITEMS = [
 const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
   const [selectedColor, setSelectedColor] = useState(COLOR_VARIANTS[0]);
   const [activeImage, setActiveImage] = useState(COLOR_VARIANTS[0].img);
+  const [selectedGalleryIndex, setSelectedGalleryIndex] = useState(0);
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedPack, setSelectedPack] = useState(2);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  // Fonction pour changer la couleur (UNIQUEMENT si on est sur l'image principale)
+  const handleColorChange = (colorVariant: typeof COLOR_VARIANTS[0]) => {
+    // On vérifie si on est sur l'image principale (index 0)
+    if (selectedGalleryIndex !== 0) {
+      // Si on n'est pas sur l'image principale, on ne fait rien
+      return;
+    }
+    setSelectedColor(colorVariant);
+    setActiveImage(colorVariant.img);
+  };
+
+  // Fonction pour changer l'image de la galerie (miniatures)
+  const handleGalleryImageClick = (imageUrl: string, index: number) => {
+    setSelectedGalleryIndex(index);
+    setActiveImage(imageUrl);
+  };
+
+  // Fonction pour revenir à l'image principale
+  const handleBackToMainImage = () => {
+    setSelectedGalleryIndex(0);
+    setActiveImage(selectedColor.img);
+  };
 
   return (
     <div className="bg-white min-h-screen font-sans text-[#1A1A1A]">
@@ -93,13 +126,19 @@ const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
                 </div>
               </div>
               
-              {/* Galerie miniatures */}
+              {/* Galerie miniatures - images fixes pour naviguer */}
               <div className="grid grid-cols-4 gap-2">
-                {COLOR_VARIANTS.map((v) => (
-                  <button key={v.id} onClick={() => {setSelectedColor(v); setActiveImage(v.img)}} 
-                    className={`aspect-square rounded-lg border-2 overflow-hidden ${selectedColor.id === v.id ? 'border-[#FF6B00]' : 'border-transparent'}`}>
-                    <img src={v.img} className="w-full h-full object-cover" alt={v.name} />
-                  </button>
+                {GALLERY_IMAGES.map((img, idx) => (
+                  <button 
+                    key={idx} 
+                    onClick={() => handleGalleryImageClick(img, idx)}
+                    className={`aspect-square rounded-lg border-2 overflow-hidden transition-all ${
+                      selectedGalleryIndex === idx 
+                        ? 'border-[#FF6B00] ring-2 ring-orange-200/50' 
+                        : 'border-transparent hover:border-stone-300'
+                    }`}>
+                    <img src={img} className="w-full h-full object-cover" alt={`Vue ${idx + 1}`} />
+                    </button>
                 ))}
               </div>
             </div>
@@ -131,15 +170,37 @@ const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
             {/* Sélecteurs (Couleur & Taille) */}
             <div className="space-y-6">
               <div>
-                <p className="text-[10px] font-black uppercase tracking-widest mb-3">Couleur: <span className="text-[#FF6B00]">{selectedColor.name}</span></p>
+                <div className="flex justify-between items-center mb-3">
+                  <p className="text-[10px] font-black uppercase tracking-widest">Couleur: <span className="text-[#FF6B00]">{selectedColor.name}</span></p>
+                  {selectedGalleryIndex !== 0 && (
+                    <span className="text-[8px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">
+                      🔒 Désactivé
+                    </span>
+                  )}
+                </div>
                 <div className="flex gap-3">
                   {COLOR_VARIANTS.map((v) => (
-                    <button key={v.id} onClick={() => {setSelectedColor(v); setActiveImage(v.img)}}
-                      className={`w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all ${selectedColor.id === v.id ? 'border-black scale-110' : 'border-transparent'}`}>
-                      <span className="w-8 h-8 rounded-full border border-black/5" style={{backgroundColor: v.hex}} />
+                    <button 
+                      key={v.id} 
+                      onClick={() => handleColorChange(v)}
+                      disabled={selectedGalleryIndex !== 0}
+                      className={`w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all ${
+                        selectedColor.id === v.id && selectedGalleryIndex === 0 ? 'border-black scale-110' : 'border-transparent'
+                      } ${
+                        selectedGalleryIndex !== 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
+                      }`}>
+                      <span 
+                        className="w-8 h-8 rounded-full border border-black/5" 
+                        style={{backgroundColor: v.hex}} 
+                      />
                     </button>
                   ))}
                 </div>
+                {selectedGalleryIndex !== 0 && (
+                  <p className="text-[9px] text-stone-400 mt-2">
+                    ℹ️ Sélectionnez la vue principale pour changer la couleur
+                  </p>
+                )}
               </div>
 
               <div>
@@ -160,70 +221,70 @@ const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
 
             {/* --- OFFRES (PACKS) AVEC SÉLECTION DE COULEURS --- */}
             <div className="space-y-4">
-            <div className="flex items-center gap-2 text-[11px] font-black text-[#FF6B00] mb-2">
+              <div className="flex items-center gap-2 text-[11px] font-black text-[#FF6B00] mb-2">
                 <Clock size={14} /> L'OFFRE SE TERMINE BIENTÔT
-            </div>
-            {/* Packs */}
-            {[
+              </div>
+              {/* Packs */}
+              {[
                 { id: 1, qty: "1 paire", price: "5000 FCFA", originalPrice: "5000 FCFA", tag: null, savePercent: "0", discount: false },
                 { id: 2, qty: "2 paires", price: "8000 FCFA", originalPrice: "10000 FCFA", tag: "LES PLUS POPULAIRES", savePercent: "20", discount: true },
                 { id: 3, qty: "3 paires", price: "13000 FCFA", originalPrice: "15000 FCFA", tag: "Meilleur", savePercent: "20", discount: true },
               ].map((pack) => (
                 <div 
-                key={pack.id} 
-                onClick={() => setSelectedPack(pack.id)}
-                className={`relative p-4 rounded-xl border-2 cursor-pointer flex items-center justify-between transition-all ${
+                  key={pack.id} 
+                  onClick={() => setSelectedPack(pack.id)}
+                  className={`relative p-4 rounded-xl border-2 cursor-pointer flex items-center justify-between transition-all ${
                     selectedPack === pack.id 
                     ? 'border-[#FF6B00] bg-orange-50/50 shadow-md' 
                     : 'border-stone-200 bg-white hover:border-stone-300'
-                }`}
+                  }`}
                 >
-                {pack.tag && (
+                  {pack.tag && (
                     <span className="absolute -top-2 right-4 bg-black text-white text-[8px] font-black px-2 py-0.5 rounded uppercase">
-                    {pack.tag}
+                      {pack.tag}
                     </span>
-                )}
-                
-                <div className="flex items-center gap-3">
+                  )}
+                  
+                  <div className="flex items-center gap-3">
                     {/* Radio button personnalisé */}
                     <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                    selectedPack === pack.id ? 'border-[#FF6B00]' : 'border-stone-300'
+                      selectedPack === pack.id ? 'border-[#FF6B00]' : 'border-stone-300'
                     }`}>
-                    {selectedPack === pack.id && <div className="w-2.5 h-2.5 bg-[#FF6B00] rounded-full" />}
+                      {selectedPack === pack.id && <div className="w-2.5 h-2.5 bg-[#FF6B00] rounded-full" />}
                     </div>
                     
                     <div>
-                    <p className="font-black text-sm">
+                      <p className="font-black text-sm">
                         {pack.qty}
                         {pack.discount && (
-                        <span className="bg-[#FF6B00] text-white text-[8px] px-1.5 py-0.5 rounded ml-1 italic">
+                          <span className="bg-[#FF6B00] text-white text-[8px] px-1.5 py-0.5 rounded ml-1 italic">
                             ÉCONOMISEZ {pack.savePercent}%
-                        </span>
+                          </span>
                         )}
-                    </p>
-                    <p className="text-[10px] font-bold text-stone-400">
-                      Économisez {
-                        pack.id === 2 ? '2000' : 
-                        pack.id === 3 ? '2000' : 
-                        pack.id === 5 ? '4000' : '0'
-                      } FCFA 
-                    </p>
+                      </p>
+                      <p className="text-[10px] font-bold text-stone-400">
+                        Économisez {
+                          pack.id === 2 ? '2000' : 
+                          pack.id === 3 ? '2000' : 
+                          pack.id === 5 ? '4000' : '0'
+                        } FCFA 
+                      </p>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="text-right">
+                  
+                  <div className="text-right">
                     <p className="font-black text-sm text-stone-900">{pack.price}</p>
                     {pack.discount && (
-                    <p className="text-[10px] text-stone-400 line-through">{pack.originalPrice}</p>
+                      <p className="text-[10px] text-stone-400 line-through">{pack.originalPrice}</p>
                     )}
+                  </div>
                 </div>
-                </div>
-            ))}
+              ))}
             </div>
 
             {/* Bouton CTA */}
             <button onClick={onOpenModal} className={`w-full py-3 rounded-xl font-black text-lg flex items-center justify-center gap-3 transition-all ${selectedSize ? 'bg-[#FF5C00] text-white shadow-xl shadow-orange-200' : 'bg-stone-300 text-white cursor-not-allowed'}`}>
-              {"COMMANDER"}
+              COMMANDER
               <ChevronRight size={20} />
             </button>
 
@@ -275,7 +336,6 @@ const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
         </div>
       </div>
     </div>
-    
   );
 };
 

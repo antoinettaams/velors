@@ -6,7 +6,6 @@ const testimonials = [
     id: 1,
     name: "Gino",
     role: "Ouvrier du bâtiment",
-    image: "/images/testimonial-gino.jpg",
     text: "Je passe mes journées sur un sol en béton avec des chaussures de sécurité à embout d'acier. Les Velors offrent un excellent amorti et un bon maintien, réduisant ainsi l'impact sur mes pieds et mes articulations. Je suis vraiment impressionné par leur efficacité. J'en ai parlé à tous mes collègues sur le chantier.",
     rating: 5
   },
@@ -14,7 +13,6 @@ const testimonials = [
     id: 2,
     name: "Lynda",
     role: "Infirmière hospitalière",
-    image: "/images/testimonial-lynda.jpg",
     text: "Infirmière de profession à Cotonou, je suis debout toute la journée. Dès que je les ai enfilées, j'ai senti la différence. Le soutien de la voûte plantaire est excellent et m'apporte un soulagement bienvenu après mes gardes de 12 heures. L'amorti est parfait pour absorber les chocs.",
     rating: 5
   },
@@ -22,7 +20,6 @@ const testimonials = [
     id: 3,
     name: "Koffi",
     role: "Livreur à moto (Zémidjan)",
-    image: "/images/testimonial-koffi.jpg",
     text: "Conducteur de taxi-moto, mes pieds sont constamment sollicités pour stabiliser la moto. Avec ces semelles, je ne ressens plus la fatigue au niveau des talons le soir en rentrant à chez moi. C'est un investissement que chaque conducteur devrait faire pour sa santé.",
     rating: 5
   },
@@ -30,7 +27,6 @@ const testimonials = [
     id: 4,
     name: "Awa",
     role: "Commerçante au Marché Dantokpa",
-    image: "/images/testimonial-awa.jpg",
     text: "Je marche énormément pour gérer mes stocks et servir mes clients. Avant, mes pieds brûlaient en fin de journée. Depuis que j'utilise les semelles Velors dans mes chaussures fermées, je me sens légère. On dirait que je marche sur un tapis de mousse toute la journée !",
     rating: 5
   },
@@ -38,7 +34,6 @@ const testimonials = [
     id: 5,
     name: "Ousmane",
     role: "Agent de sécurité",
-    image: "/images/testimonial-ousmane.jpg",
     text: "La station debout prolongée était un calvaire pour moi. Ces semelles ont changé ma vie professionnelle. Je n'ai plus ces douleurs lancinantes dans le bas du dos et mes pieds respirent mieux, même après une longue nuit de service.",
     rating: 5
   }
@@ -105,18 +100,6 @@ const TestimonialCarousel = () => {
               key={item.id}
               className="flex-none w-[85vw] md:w-[400px] snap-center bg-white rounded-[2.5rem] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-gray-100 flex flex-col transition-transform duration-300 hover:translate-y-[-5px]"
             >
-              {/* Image avec Overlay Quote */}
-              <div className="relative h-64 md:h-72">
-                <img 
-                  src={item.image} 
-                  alt={item.name} 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute bottom-[-20px] right-8 bg-[#FF5C00] p-4 rounded-full text-white shadow-lg z-10">
-                  <Quote size={20} fill="currentColor" />
-                </div>
-              </div>
-
               {/* Contenu Texte */}
               <div className="p-8 pt-10 flex-1 flex flex-col">
                 <div className="flex justify-center gap-1 mb-4">
