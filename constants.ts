@@ -28,7 +28,7 @@ export const SINGLE_PRODUCT: Product = {
 // Keep the array structure for compatibility but only one item
 export const PRODUCTS: Product[] = [SINGLE_PRODUCT];
 
-export const SIZES = ['36-37', '38-39', '40-41', '42-43', '44-45', '46+'];
+export const SIZES = ['41-42', '42-43', '43-44', '44-45', '45-46'];
 
 
 
