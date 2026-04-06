@@ -62,7 +62,7 @@ const ComparisonSection = () => {
                 {/* BADGE BEFORE */}
                 <div className="absolute top-4 left-4 z-10">
                     <span className="bg-black text-white px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider shadow-md">
-                        Aavnt
+                        Avant
                     </span>
                 </div>
               </div>
