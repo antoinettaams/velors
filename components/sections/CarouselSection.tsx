@@ -7,14 +7,13 @@ interface CarouselProps {
 }
 
 const usageCards = [
-  { id: 1, title: 'Postes de travail', imageUrl: '/images/usage-work-warehouse.jpg', glowColor: 'rgba(255,120,0,0.9)' },
-  { id: 2, title: 'Style de vie', imageUrl: '/images/usage-lifestyle-park.jpg', glowColor: 'rgba(255,80,0,0.7)' },
-  { id: 3, title: 'Sociale', imageUrl: '/images/usage-social-pickleball.jpg', glowColor: 'rgba(255,100,0,1)' },
-  { id: 4, title: 'Sur site', imageUrl: '/images/usage-onsite-construction.jpg', glowColor: 'rgba(255,120,0,0.9)' },
-  { id: 5, title: 'Sauver', imageUrl: '/images/usage-save-hospital.jpg', glowColor: 'rgba(255,80,0,0.6)' },
-  { id: 6, title: 'Athlète', imageUrl: '/images/usage-athlete.jpg', glowColor: 'rgba(255,80,0,0.6)' },
-  { id: 7, title: 'Aventure', imageUrl: '/images/usage-adventure.jpg', glowColor: 'rgba(255,80,0,0.6)' },
-  { id: 8, title: 'Longues journées au travail', imageUrl: '/images/usage-longdays.jpg', glowColor: 'rgba(255,80,0,0.6)' },
+  { id: 1, title: 'Postes de travail', imageUrl: 'https://i.postimg.cc/053P1Gxw/665898031-1647254329643255-5309178860054808430-n.webp', glowColor: 'rgba(255,120,0,0.9)' },
+  { id: 2, title: 'Style de vie', imageUrl: 'https://i.postimg.cc/tTkQcPkn/662084347-2692512364467537-7490944779117986740-n.webp', glowColor: 'rgba(255,80,0,0.7)' },
+  { id: 3, title: 'Sociale', imageUrl: 'https://i.postimg.cc/k4LSS6rN/661644441-1369797751850721-8174586990885247932-n.webp', glowColor: 'rgba(255,100,0,1)' },
+  { id: 4, title: 'Sur site', imageUrl: 'https://i.postimg.cc/Dzdw2S6x/664437999-916186851391532-5458278990274238567-n.webp', glowColor: 'rgba(255,120,0,0.9)' },
+  { id: 5, title: 'Sauver', imageUrl: 'https://i.postimg.cc/vBHScK7c/661636495-1424058906186076-154110076840324672-n.webp', glowColor: 'rgba(255,80,0,0.6)' },
+  { id: 6, title: 'Athlète', imageUrl: 'https://i.postimg.cc/jSHfBdpJ/664799321-877917955301805-4585676320509929209-n.webp', glowColor: 'rgba(255,80,0,0.6)' },
+  { id: 7, title: 'Aventure', imageUrl: 'https://i.postimg.cc/ZnPcHFxF/664264886-2793836417628340-4833787593156512785-n.webp', glowColor: 'rgba(255,80,0,0.6)' },
 ];
 
 const stats = [

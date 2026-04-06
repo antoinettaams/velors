@@ -13,20 +13,6 @@ const ExpertSection: React.FC = () => {
 
         {/* CARTE DE L'EXPERT (Même style que les témoignages) */}
         <div className="flex flex-col rounded-[2.5rem] overflow-hidden bg-[#F8F8F8] shadow-sm border border-stone-100">
-          
-          {/* PARTIE IMAGE (HAUT) */}
-          <div className="relative w-full aspect-square">
-            <img 
-              src="https://images.unsplash.com/photo-1559839734-2b71f1536783?q=80&w=600" 
-              alt="Dr Thomas Schneider" 
-              className="w-full h-full object-cover"
-            />
-            {/* BADGE QUOTE ORANGE À L'INTERSECTION */}
-            <div className="absolute -bottom-6 right-6 bg-[#FF6B00] p-4 rounded-full text-white shadow-lg z-10">
-              <Quote size={24} fill="currentColor" />
-            </div>
-          </div>
-
           {/* PARTIE TEXTE (BAS) */}
           <div className="p-8 pt-10 text-center space-y-5">
             {/* ÉTOILES DE NOTATION */}

@@ -44,7 +44,7 @@ const ComparisonVelorsSection = () => {
           <div className="flex bg-white rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden border border-gray-100">
             
             {/* Colonne de Gauche Orange */}
-            <div className="bg-black w-7/12 flex flex-col">
+            <div className="bg-[#FF5C00] w-7/12 flex flex-col">
               {features.map((feature, index) => (
                 <div 
                   key={index} 
