@@ -99,11 +99,42 @@ const ComparisonSection = () => {
               Vivez vous-même cette transformation et entrez dès aujourd'hui dans un avenir sans douleur.
             </p>
           </div>
+        </div>
 
+        {/* FEATURES */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+          <Feature
+            icon={<Activity className="text-[#FF6B00]" />}
+            title="Améliorer la posture"
+            desc="Un bon soutien de la voûte plantaire favorise un meilleur alignement de la colonne vertébrale."
+          />
+          <Feature
+            icon={<Activity className="text-[#FF6B00]" />}
+            title="Meilleures performances"
+            desc="Ajoute un effet de ressort à chaque pas, facilitant ainsi la marche et la course."
+          />
+          <Feature
+            icon={<Scissors className="text-[#FF6B00]" />}
+            title="Taille ajustable"
+            desc="Il suffit de découper le long de la ligne pointillée avec des ciseaux."
+          />
+          <Feature
+            icon={<Droplets className="text-[#FF6B00]" />}
+            title="Lavable"
+            desc="Nettoyage simple à l'eau et savon."
+          />
         </div>
       </div>
     </section>
   );
 };
+
+const Feature = ({ icon, title, desc }: any) => (
+  <div className="text-center">
+    <div className="mb-3 flex justify-center">{icon}</div>
+    <h3 className="font-bold">{title}</h3>
+    <p className="text-sm text-gray-500">{desc}</p>
+  </div>
+);
 
 export default ComparisonSection;

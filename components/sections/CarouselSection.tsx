@@ -6,6 +6,7 @@ interface CarouselProps {
   onOpenModal: () => void;
 }
 
+// Dupliquer les cartes pour créer un effet infini
 const usageCards = [
   { id: 1, title: 'Postes de travail', imageUrl: 'https://i.postimg.cc/053P1Gxw/665898031-1647254329643255-5309178860054808430-n.webp', glowColor: 'rgba(255,120,0,0.9)' },
   { id: 2, title: 'Style de vie', imageUrl: 'https://i.postimg.cc/tTkQcPkn/662084347-2692512364467537-7490944779117986740-n.webp', glowColor: 'rgba(255,80,0,0.7)' },
@@ -15,6 +16,9 @@ const usageCards = [
   { id: 6, title: 'Athlète', imageUrl: 'https://i.postimg.cc/jSHfBdpJ/664799321-877917955301805-4585676320509929209-n.webp', glowColor: 'rgba(255,80,0,0.6)' },
   { id: 7, title: 'Aventure', imageUrl: 'https://i.postimg.cc/ZnPcHFxF/664264886-2793836417628340-4833787593156512785-n.webp', glowColor: 'rgba(255,80,0,0.6)' },
 ];
+
+// Créer un tableau étendu pour l'effet infini (3x les cartes)
+const infiniteCards = [...usageCards, ...usageCards, ...usageCards];
 
 const stats = [
   {
@@ -38,6 +42,7 @@ const stats = [
 const CarouselSection: React.FC<CarouselProps> = ({ onOpenModal }) => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const isResettingRef = useRef(false);
 
   const [isHovered, setIsHovered] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -45,26 +50,64 @@ const CarouselSection: React.FC<CarouselProps> = ({ onOpenModal }) => {
   const [activeDot, setActiveDot] = useState(0);
 
   const handleScrollUpdate = () => {
-    if (carouselRef.current) {
+    if (carouselRef.current && !isResettingRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
       setCanScrollLeft(scrollLeft > 10);
       setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 10);
 
-      const scrollPercentage = scrollLeft / (scrollWidth - clientWidth || 1);
-      const dotIndex = Math.min(Math.floor(scrollPercentage * usageCards.length), usageCards.length - 1);
-      setActiveDot(dotIndex);
+      // Calculer l'index actuel pour les dots (basé sur la position dans le carrousel)
+      const cardWidth = carouselRef.current.querySelector('div')?.clientWidth || 300;
+      const gap = 24;
+      const cardFullWidth = cardWidth + gap;
+      const rawIndex = (scrollLeft / cardFullWidth) % usageCards.length;
+      const dotIndex = Math.floor(rawIndex);
+      setActiveDot(dotIndex >= 0 && dotIndex < usageCards.length ? dotIndex : 0);
     }
   };
 
+  // Gestion du défilement infini
   useEffect(() => {
     const carousel = carouselRef.current;
-    if (carousel) {
-      carousel.addEventListener('scroll', handleScrollUpdate);
-      handleScrollUpdate();
-      return () => carousel.removeEventListener('scroll', handleScrollUpdate);
-    }
+    if (!carousel) return;
+
+    const handleInfiniteScroll = () => {
+      if (isResettingRef.current) return;
+      
+      const { scrollLeft, scrollWidth, clientWidth } = carousel;
+      const cardWidth = carousel.querySelector('div')?.clientWidth || 300;
+      const gap = 24;
+      const cardFullWidth = cardWidth + gap;
+      const totalCardsWidth = usageCards.length * cardFullWidth;
+
+      // Si on est trop à droite, revenir au début de la copie centrale
+      if (scrollLeft >= totalCardsWidth * 2) {
+        isResettingRef.current = true;
+        carousel.scrollTo({ left: scrollLeft - totalCardsWidth, behavior: 'instant' });
+        isResettingRef.current = false;
+      }
+      // Si on est trop à gauche, aller à la fin de la copie centrale
+      else if (scrollLeft < totalCardsWidth) {
+        isResettingRef.current = true;
+        carousel.scrollTo({ left: scrollLeft + totalCardsWidth, behavior: 'instant' });
+        isResettingRef.current = false;
+      }
+    };
+
+    carousel.addEventListener('scroll', handleInfiniteScroll);
+    carousel.addEventListener('scroll', handleScrollUpdate);
+    handleScrollUpdate();
+    
+    // Initialiser la position au milieu (copie centrale)
+    const totalCardsWidth = usageCards.length * (carousel.querySelector('div')?.clientWidth || 300 + 24);
+    carousel.scrollTo({ left: totalCardsWidth, behavior: 'instant' });
+
+    return () => {
+      carousel.removeEventListener('scroll', handleInfiniteScroll);
+      carousel.removeEventListener('scroll', handleScrollUpdate);
+    };
   }, []);
 
+  // Défilement automatique infini
   useEffect(() => {
     if (isHovered) {
       if (intervalRef.current) clearInterval(intervalRef.current);
@@ -72,16 +115,12 @@ const CarouselSection: React.FC<CarouselProps> = ({ onOpenModal }) => {
     }
 
     intervalRef.current = setInterval(() => {
-      if (carouselRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+      if (carouselRef.current && !isResettingRef.current) {
         const firstCard = carouselRef.current.querySelector('div');
         const cardWidth = firstCard?.clientWidth || 300;
-
-        if (scrollLeft + clientWidth >= scrollWidth - 5) {
-          carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          carouselRef.current.scrollBy({ left: cardWidth + 24, behavior: 'smooth' });
-        }
+        const gap = 24;
+        
+        carouselRef.current.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
       }
     }, 3000);
 
@@ -92,8 +131,10 @@ const CarouselSection: React.FC<CarouselProps> = ({ onOpenModal }) => {
 
   const scroll = (direction: 'left' | 'right') => {
     if (carouselRef.current) {
-      const { clientWidth } = carouselRef.current;
-      const scrollAmount = direction === 'left' ? -clientWidth : clientWidth;
+      const firstCard = carouselRef.current.querySelector('div');
+      const cardWidth = firstCard?.clientWidth || 300;
+      const gap = 24;
+      const scrollAmount = direction === 'left' ? -(cardWidth + gap) : (cardWidth + gap);
       carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
@@ -124,11 +165,11 @@ const CarouselSection: React.FC<CarouselProps> = ({ onOpenModal }) => {
               className="flex gap-6 overflow-x-auto scroll-smooth pb-8"
               style={{ scrollbarWidth: 'none' }}
             >
-              {usageCards.map((card) => (
-                <div key={card.id} className="flex-none w-[80vw] sm:w-[50vw] md:w-[33.3vw] lg:w-[20.8vw] aspect-[3/4] rounded-3xl overflow-hidden shadow-lg relative group">
+              {infiniteCards.map((card, index) => (
+                <div key={`${card.id}-${index}`} className="flex-none w-[80vw] sm:w-[50vw] md:w-[33.3vw] lg:w-[20.8vw] aspect-[3/4] rounded-3xl overflow-hidden shadow-lg relative group">
                   <img src={card.imageUrl} alt={card.title} className="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-16 rounded-full blur-[15px]" style={{ backgroundColor: card.glowColor }} />
-                  <div className="absolute bottom-0 w-full bg-black text-white py-4 text-center font-bold uppercase tracking-wider">{card.title}</div>
+                  <div className="absolute bottom-0 w-full bg-black text-white py-2 text-center font-bold uppercase tracking-wider">{card.title}</div>
                 </div>
               ))}
             </div>
@@ -143,7 +184,7 @@ const CarouselSection: React.FC<CarouselProps> = ({ onOpenModal }) => {
 
           <div className="flex justify-center gap-2 mt-10">
             {usageCards.map((_, index) => (
-              <div key={index} className={`w-2.5 h-2.5 rounded-full ${activeDot === index ? 'bg-orange-500 scale-125' : 'bg-gray-300'}`} />
+              <div key={index} className={`w-2.5 h-2.5 rounded-full transition-all ${activeDot === index ? 'bg-orange-500 scale-125' : 'bg-gray-300'}`} />
             ))}
           </div>
         </div>
@@ -188,7 +229,6 @@ const CarouselSection: React.FC<CarouselProps> = ({ onOpenModal }) => {
 
               <div className="space-y-4">
                   <div className="flex justify-center lg:justify-start">
-                    {/* LE BOUTON UTILISE DÉSORMAIS LA PROP REÇUE */}
                     <button 
                       onClick={onOpenModal} 
                       className="bg-orange-500 hover:bg-orange-600 text-white font-black py-3 px-8 rounded-lg text-base tracking-tighter uppercase transition-all transform hover:scale-105 shadow-md"

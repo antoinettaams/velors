@@ -17,7 +17,7 @@ const ExpertSection: React.FC = () => {
           {/* PARTIE IMAGE (HAUT) */}
           <div className="relative w-full aspect-square">
             <img 
-              src="https://images.unsplash.com/photo-1559839734-2b71f1536783?q=80&w=600" 
+              src="https://i.postimg.cc/KvVvTFGH/664353328-26557583170591988-3019375139041454583-n.webp" 
               alt="Dr Thomas Schneider" 
               className="w-full h-full object-cover"
             />
