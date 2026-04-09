@@ -82,7 +82,6 @@ const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
   const [selectedColor, setSelectedColor] = useState(COLOR_VARIANTS[0]);
   const [activeImage, setActiveImage] = useState(COLOR_VARIANTS[0].img);
   const [selectedGalleryIndex, setSelectedGalleryIndex] = useState(0);
-  const [selectedSize, setSelectedSize] = useState("");
   const [selectedPack, setSelectedPack] = useState(2);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -205,17 +204,21 @@ const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
 
               <div>
                 <div className="flex justify-between items-center mb-3">
-                  <p className="text-[10px] font-black uppercase tracking-widest">Pointure</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest">Pointures disponibles</p>
                   <button className="text-[10px] font-black underline flex items-center gap-1"><Info size={12}/> TABLEAU DES TAILLES</button>
                 </div>
                 <div className="grid grid-cols-4 gap-2">
                   {SIZES.map(s => (
-                    <button key={s} onClick={() => setSelectedSize(s)} 
-                      className={`py-2 text-[10px] font-black border-2 rounded transition-all ${selectedSize === s ? 'bg-black text-white border-black' : 'bg-white border-stone-200 hover:border-stone-400'}`}>
+                    <div 
+                      key={s} 
+                      className={`py-2 text-[10px] font-black border-2 rounded text-center bg-white border-stone-200`}>
                       {s}
-                    </button>
+                    </div>
                   ))}
                 </div>
+                <p className="text-[9px] text-stone-400 mt-2 text-center">
+                  ✓ Toutes nos pointures sont disponibles
+                </p>
               </div>
             </div>
 
@@ -282,8 +285,11 @@ const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
               ))}
             </div>
 
-            {/* Bouton CTA */}
-            <button onClick={onOpenModal} className={`w-full py-3 rounded-xl font-black text-lg flex items-center justify-center gap-3 transition-all ${selectedSize ? 'bg-[#FF5C00] text-white shadow-xl shadow-orange-200' : 'bg-stone-300 text-white cursor-not-allowed'}`}>
+            {/* Bouton CTA - Toujours actif et orange */}
+            <button 
+              onClick={onOpenModal} 
+              className="w-full py-3 rounded-xl font-black text-lg flex items-center justify-center gap-3 transition-all bg-[#FF5C00] text-white shadow-xl shadow-orange-200 hover:bg-[#FF4500]"
+            >
               COMMANDER
               <ChevronRight size={20} />
             </button>
