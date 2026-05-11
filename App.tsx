@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
+
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Routes,
   Route,
   useLocation
@@ -24,7 +25,9 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
+
     window.scrollTo(0, 0);
+
   }, [pathname]);
 
   return null;
@@ -34,7 +37,7 @@ const ScrollToTop = () => {
 
 /**
  * Meta Pixel Tracking
- * Track chaque PageView automatiquement
+ * Track automatiquement les PageView sur SPA
  */
 const MetaPixelTracker = () => {
 
@@ -42,7 +45,6 @@ const MetaPixelTracker = () => {
 
   useEffect(() => {
 
-    // vérifie que fbq existe
     if ((window as any).fbq) {
 
       (window as any).fbq('track', 'PageView');
@@ -64,9 +66,10 @@ const App: React.FC = () => {
 
     <Router>
 
+      {/* Scroll Top */}
       <ScrollToTop />
 
-      {/* Meta Pixel Tracking */}
+      {/* Meta Pixel */}
       <MetaPixelTracker />
 
       <div className="flex flex-col min-h-screen font-sans antialiased bg-velors-light selection:bg-velors-orange selection:text-white">
@@ -100,6 +103,7 @@ const App: React.FC = () => {
     </Router>
 
   );
+
 };
 
 export default App;
