@@ -155,7 +155,7 @@ const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
               </div>
               <h1 className="text-4xl font-black mb-3 uppercase tracking-tighter">Semelles Velors</h1>
               <div className="flex items-center gap-4">
-                <span className="text-3xl font-black text-[#FF6B00]">5000 FCFA</span>
+                <span className="text-3xl font-black text-[#FF6B00]">7000 FCFA</span>
               </div>
             </div>
 
@@ -229,9 +229,9 @@ const ProductLanding: React.FC<ProductLandingProps> = ({ onOpenModal }) => {
               </div>
               {/* Packs */}
               {[
-                { id: 1, qty: "1 paire", price: "5000 FCFA", originalPrice: "5000 FCFA", tag: null, savePercent: "0", discount: false },
-                { id: 2, qty: "2 paires", price: "8000 FCFA", originalPrice: "10000 FCFA", tag: "LES PLUS POPULAIRES", savePercent: "20", discount: true },
-                { id: 3, qty: "3 paires", price: "13000 FCFA", originalPrice: "15000 FCFA", tag: "Meilleur", savePercent: "20", discount: true },
+                { id: 1, qty: "1 paire", price: "7000 FCFA", originalPrice: "7000 FCFA", tag: null, savePercent: "0", discount: false },
+                { id: 2, qty: "2 paires", price: "10000 FCFA", originalPrice: "14000 FCFA", tag: "LES PLUS POPULAIRES", savePercent: "20", discount: true },
+                { id: 3, qty: "3 paires", price: "15000 FCFA", originalPrice: "21000 FCFA", tag: "Meilleur", savePercent: "20", discount: true },
               ].map((pack) => (
                 <div 
                   key={pack.id} 

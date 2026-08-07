@@ -14,9 +14,9 @@ interface OrderModalProps {
 
 // Configuration des packs
 const PACK_CONFIG = {
-  1: { price: 5000, label: '1 paire' },
-  2: { price: 8000, label: '2 paires' },
-  3: { price: 13000, label: '3 paires' }
+  1: { price: 7000, label: '1 paire' },
+  2: { price: 10000, label: '2 paires' },
+  3: { price: 15000, label: '3 paires' }
 };
 
 type PackQuantity = 1 | 2 | 3;
@@ -261,9 +261,9 @@ const OrderModal: React.FC<OrderModalProps> = ({ product, isOpen, onClose }) => 
                       onChange={handlePackChange}
                       className="mt-1 block w-full rounded-md border-stone-300 bg-white py-2 px-3 focus:border-velors-orange focus:ring-velors-orange sm:text-sm outline-none border"
                     >
-                      <option value={1}>1 paire - 5 000 FCFA</option>
-                      <option value={2}>2 paires - 8 000 FCFA</option>
-                      <option value={3}>3 paires - 13 000 FCFA</option>
+                      <option value={1}>1 paire - 7 000 FCFA</option>
+                      <option value={2}>2 paires - 10 000 FCFA</option>
+                      <option value={3}>3 paires - 15 000 FCFA</option>
                     </select>
                     {packQuantity > 1 && (
                       <p className="text-xs text-green-600 mt-1">
