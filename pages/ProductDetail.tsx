@@ -11,7 +11,7 @@ import TestimonialCarousel from '@/components/sections/TestimonialsCoursel';
 import ProductLanding from '@/components/sections/ProductLanding';
 import ExpertSection from '@/components/sections/ExpertSection';
 
-const ProductDetail: React.FC = () => {
+const ProductDetail: React.FC = () => { 
   const navigate = useNavigate();
   const product = SINGLE_PRODUCT;
   
@@ -26,14 +26,8 @@ const ProductDetail: React.FC = () => {
 
       <ProductLanding onOpenModal={handleOpenModal}/>
       
-      {/* 1. Section Vidéo - Hero */}
-      <VideoSection
-        title="Marchez sans douleur"
-        description="Découvrez les semelles Velors : le confort ultime pour vos pieds. Redécouvrez le plaisir de marcher, de vous tenir debout et de vivre sans douleurs aux pieds."
-        videoUrl="/videos/velors-demo.mp4"
-        buttonText="Découvrir la technologie"
-        onButtonClick={handleOpenModal}
-      />
+      {/* 1. Section Vidéo - Hero - Sans props */}
+      <VideoSection />  {/* ← Supprime toutes les props */}
       
       {/* 2. Marquee Banner (Barre défilante orange) */}
       <div className="bg-[#FF5C00] m-0 py-3 sm:py-4 overflow-hidden border-y border-white/10">
@@ -60,16 +54,15 @@ const ProductDetail: React.FC = () => {
       <CarouselSection onOpenModal={handleOpenModal} />
 
       {/* 5. Section Testimonials */}
-      <TestimonialCarousel/>
+      <TestimonialCarousel />
 
       {/* 6. Section Tableau Comparatif (Stepprs vs Autres) */}
       <ComparisonSectionVelors />
 
       {/* 7. ExpertSection */}
-      <ExpertSection/>
+      <ExpertSection />
       
-      {/* 8. Section Finale de Conclusion (CTA) 
-          Correction de l'erreur TS : on passe bien onOpenModal */}
+      {/* 8. Section Finale de Conclusion (CTA) */}
       <FinalCTASection onOpenModal={handleOpenModal} />
 
       {/* 9. Modal de commande (Portail de sortie) */}
